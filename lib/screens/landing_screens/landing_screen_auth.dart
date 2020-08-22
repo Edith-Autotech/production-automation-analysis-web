@@ -6,17 +6,8 @@ import '../../models/user.dart';
 import '../../screens/landing_screens/landing_screen_factory.dart';
 import '../../screens/sign_in_screen.dart';
 
-class LandingScreen extends StatefulWidget {
+class LandingScreen extends StatelessWidget {
   static const routeName = '/landing';
-  @override
-  _LandingScreenState createState() => _LandingScreenState();
-}
-
-class _LandingScreenState extends State<LandingScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

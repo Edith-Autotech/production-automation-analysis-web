@@ -33,17 +33,10 @@ class _EmailSignInCardState extends State<EmailSignInCard>
   String get confirmPassword => _confirmPasswordController.text;
 
   LoginInMode _loginInMode = LoginInMode.SignInMode;
-  AnimationController _controller;
-  Animation<Size> _heightAnimation;
   bool _isSwitched = true;
 
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
-    _heightAnimation = Tween<Size>(
-            begin: Size(double.infinity, 300), end: Size(double.infinity, 400))
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
   }
 
   void changeState(bool value) {
@@ -52,13 +45,11 @@ class _EmailSignInCardState extends State<EmailSignInCard>
         _isSwitched = value;
         _loginInMode = LoginInMode.SignInMode;
       });
-      _controller.forward();
     } else {
       setState(() {
         _isSwitched = value;
         _loginInMode = LoginInMode.RegisterMode;
       });
-      _controller.reverse();
     }
   }
 
@@ -94,16 +85,9 @@ class _EmailSignInCardState extends State<EmailSignInCard>
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(50.0),
-          child: AnimatedBuilder(
-            animation: _heightAnimation,
-            builder: (context, child) => Container(
-              height: _heightAnimation.value.height,
-              width: _heightAnimation.value.width,
-              constraints: BoxConstraints(
-                minHeight: _heightAnimation.value.height,
-              ),
-              child: child,
-            ),
+          child: AnimatedContainer(
+            duration: Duration(milliseconds: 500),
+            height: _loginInMode == LoginInMode.RegisterMode ? 400 : 300,
             child: Form(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

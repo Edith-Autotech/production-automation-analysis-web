@@ -1,3 +1,4 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -67,11 +68,11 @@ class _EmailSignInCardState extends State<EmailSignInCard>
       try {
         await auth.createUserWithEmailAndPassword(email, password);
       } on PlatformException catch (error) {
-        PlatformAlertDialog(
-          content: error.message,
-          defaultActionText: "Okay",
-          title: "Error!",
-        );
+        CoolAlert.show(
+            context: context,
+            type: CoolAlertType.error,
+            text: "User not found",
+            title: "User Error");
       }
     } else {
       FlutterToast(context).showToast(child: Text("Passwords don't match"));
@@ -83,80 +84,83 @@ class _EmailSignInCardState extends State<EmailSignInCard>
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Card(
-        child: Padding(
+        child: Container(
+          height: 500,
           padding: const EdgeInsets.all(50.0),
-          child: AnimatedContainer(
-            duration: Duration(milliseconds: 500),
-            height: _loginInMode == LoginInMode.RegisterMode ? 400 : 300,
+          child: Center(
             child: Form(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Register",
-                          style: TextStyle(
-                            fontSize: 20,
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 500),
+                height: _loginInMode == LoginInMode.RegisterMode ? 400 : 300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Register",
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
                           ),
-                        ),
-                        Switch(
-                          value: _isSwitched,
-                          inactiveTrackColor: Colors.red,
-                          onChanged: (value) => changeState(value),
-                        ),
-                        Text(
-                          "Sign In",
-                          style: TextStyle(
-                            fontSize: 20,
+                          Switch(
+                            value: _isSwitched,
+                            inactiveTrackColor: Colors.red,
+                            onChanged: (value) => changeState(value),
                           ),
-                        ),
-                      ],
+                          Text(
+                            "Sign In",
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  CustomTextField(
-                    controller: _emailController,
-                    focusNode: _emailNode,
-                    labelText: "Email",
-                    hintText: "abc@xyz.com",
-                    enabled: true,
-                    onChanged: (value) => setState(() {}),
-                    onEditingComplete: () {},
-                  ),
-                  CustomTextField(
-                    controller: _passwordController,
-                    focusNode: _passwordNode,
-                    labelText: "Password",
-                    obscureText: true,
-                    enabled: true,
-                    onChanged: (value) => setState(() {}),
-                    onEditingComplete: () {},
-                  ),
-                  if (_loginInMode == LoginInMode.RegisterMode)
                     CustomTextField(
-                      controller: _confirmPasswordController,
-                      focusNode: _confirmPasswordNode,
+                      controller: _emailController,
+                      focusNode: _emailNode,
+                      labelText: "Email",
+                      hintText: "abc@xyz.com",
+                      enabled: true,
                       onChanged: (value) => setState(() {}),
                       onEditingComplete: () {},
-                      enabled: _loginInMode == LoginInMode.RegisterMode,
-                      labelText: 'Confirm Password',
-                      obscureText: true,
                     ),
-                  SubmitButton(
-                    color: _loginInMode == LoginInMode.SignInMode
-                        ? Theme.of(context).accentColor
-                        : Colors.red,
-                    text: _loginInMode == LoginInMode.SignInMode
-                        ? "Sign In"
-                        : "Register",
-                    onPressed: _loginInMode == LoginInMode.SignInMode
-                        ? signIn
-                        : register,
-                  ),
-                ],
+                    CustomTextField(
+                      controller: _passwordController,
+                      focusNode: _passwordNode,
+                      labelText: "Password",
+                      obscureText: true,
+                      enabled: true,
+                      onChanged: (value) => setState(() {}),
+                      onEditingComplete: () {},
+                    ),
+                    if (_loginInMode == LoginInMode.RegisterMode)
+                      CustomTextField(
+                        controller: _confirmPasswordController,
+                        focusNode: _confirmPasswordNode,
+                        onChanged: (value) => setState(() {}),
+                        onEditingComplete: () {},
+                        enabled: _loginInMode == LoginInMode.RegisterMode,
+                        labelText: 'Confirm Password',
+                        obscureText: true,
+                      ),
+                    SubmitButton(
+                      color: _loginInMode == LoginInMode.SignInMode
+                          ? Theme.of(context).accentColor
+                          : Colors.red,
+                      text: _loginInMode == LoginInMode.SignInMode
+                          ? "Sign In"
+                          : "Register",
+                      onPressed: _loginInMode == LoginInMode.SignInMode
+                          ? signIn
+                          : register,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

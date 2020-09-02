@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:production_automation_web/models/factory.dart';
 import 'package:production_automation_web/models/machine.dart';
-import 'package:production_automation_web/screens/analysis_screen.dart';
+import 'package:production_automation_web/screens/machine_screen.dart';
 
 class MachineCard extends StatelessWidget {
   final Machine machine;
@@ -13,7 +13,7 @@ class MachineCard extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => AnalysisScreen(
+            builder: (context) => MachineScreen(
               machine: machine,
               factory:factory,
             ),

@@ -65,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen>
                             .data["working_operation_number"],
                         currentPart: snapshot
                             .data.documents[index].data["working_part_number"],
+                        state: snapshot.data.documents[index].data["state"],
                       ),
                     );
                   },

@@ -1,9 +1,7 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:production_automation_web/providers/auth.dart';
-import 'package:production_automation_web/widgets/dialog_box/platform_alert_dialog.dart';
 import 'package:provider/provider.dart';
 import '../../widgets/buttons/submit_button.dart';
 import '../../widgets/text_field/custom_text_field.dart';
@@ -67,7 +65,7 @@ class _EmailSignInCardState extends State<EmailSignInCard>
     if (password == confirmPassword) {
       try {
         await auth.createUserWithEmailAndPassword(email, password);
-      } on PlatformException catch (error) {
+      } catch (error) {
         CoolAlert.show(
             context: context,
             type: CoolAlertType.error,

@@ -10,13 +10,14 @@ class StrokesChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     List<charts.Series<StrokesModel, String>> series = [
       charts.Series(
         id: "Strokes",
         data: data,
-        domainFn: (StrokesModel model, _) => model.hour,
+        domainFn: (StrokesModel model, _) => model.xAxis.toString(),
         measureFn: (StrokesModel model, _) => model.strokes,
-        colorFn: (StrokesModel model, _) => model.barColor,
+        // colorFn: (StrokesModel model, _) => model.barColor,
       )
     ];
     return charts.BarChart(

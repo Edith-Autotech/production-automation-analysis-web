@@ -58,7 +58,7 @@ class _FactoryLandingSCreenState extends State<FactoryLandingSCreen> {
                         itemBuilder: (context, index) => Padding(
                           padding: const EdgeInsets.all(8),
                           child: FactoryCard(
-                            factory: Factory(
+                            factory: FactoryModel(
                               key: snapshot.data.documents[index].data["key"],
                               name: snapshot.data.documents[index].data["name"],
                             ),

@@ -1,7 +1,7 @@
-class Factory {
+class FactoryModel {
   final String key;
   final String name;
-  Factory({
+  FactoryModel({
     this.key,
     this.name,
   });

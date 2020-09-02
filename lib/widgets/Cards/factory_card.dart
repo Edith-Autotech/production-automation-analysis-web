@@ -6,7 +6,7 @@ import 'package:production_automation_web/screens/home_screen.dart';
 
 class FactoryCard extends StatelessWidget {
   final User user;
-  final Factory factory;
+  final FactoryModel factory;
   FactoryCard({@required this.factory, this.user});
   @override
   Widget build(BuildContext context) {

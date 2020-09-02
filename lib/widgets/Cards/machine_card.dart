@@ -5,7 +5,7 @@ import 'package:production_automation_web/screens/machine_screen.dart';
 
 class MachineCard extends StatelessWidget {
   final Machine machine;
-  final Factory factory;
+  final FactoryModel factory;
   MachineCard({this.machine, this.factory});
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class MachineCard extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) => MachineScreen(
               machine: machine,
-              factory:factory,
+              factoryModel:factory,
             ),
           ),
         );

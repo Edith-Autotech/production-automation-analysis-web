@@ -8,8 +8,8 @@ import '../widgets/charts/strokes_chart.dart';
 
 class MachineScreen extends StatefulWidget {
   final Machine machine;
-  final Factory factory;
-  MachineScreen({this.machine, this.factory});
+  final FactoryModel factoryModel;
+  MachineScreen({this.machine, this.factoryModel});
 
   @override
   _MachineScreenState createState() => _MachineScreenState();
@@ -30,7 +30,7 @@ class _MachineScreenState extends State<MachineScreen> {
     print(selectedDate);
     DocumentReference machineDocument = Firestore.instance
         .collection("factories")
-        .document(widget.factory.key)
+        .document(widget.factoryModel.key)
         .collection("machines")
         .document(widget.machine.machineId)
         .collection("count")
@@ -115,7 +115,9 @@ class _MachineScreenState extends State<MachineScreen> {
                         child: Center(
                           child: !_isLoading
                               ? StrokesChart(
-                                  data: data,
+                                  machine: widget.machine,
+                                  factoryModel: widget.factoryModel,
+                                  countModel: _selectedModel,
                                 )
                               : CircularProgressIndicator(),
                         ),
@@ -131,6 +133,9 @@ class _MachineScreenState extends State<MachineScreen> {
                               children: [
                                 _rowItem(
                                     label: "Date", value: _selectedModel.date),
+                                _rowItem(
+                                    label: "Count",
+                                    value: _selectedModel.count.toString()),
                                 _rowItem(
                                     label: "Idle Time",
                                     value: _selectedModel.idleTime),

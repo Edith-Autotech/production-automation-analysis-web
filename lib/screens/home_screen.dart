@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   final User user;
-  final Factory factory;
+  final FactoryModel factory;
   HomeScreen({this.user, this.factory});
   @override
   _HomeScreenState createState() => _HomeScreenState();

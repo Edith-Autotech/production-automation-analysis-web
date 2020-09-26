@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,11 +15,11 @@ class LandingScreen extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final ThemeData theme = Theme.of(context);
     final AuthBase auth = Provider.of<Auth>(context, listen: false);
-    return StreamBuilder<User>(
+    return StreamBuilder<UserModel>(
       stream: auth.onAuthStateChanged,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
-          User user = snapshot.data;
+          UserModel user = snapshot.data;
           return user != null ? FactoryLandingSCreen(user: user) : SignInScreen();
         } else if (snapshot.connectionState == ConnectionState.waiting) {
           return Scaffold(

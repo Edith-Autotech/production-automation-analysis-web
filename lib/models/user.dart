@@ -1,10 +1,10 @@
-class User {
+class UserModel {
   final String uid;
   final String name;
   final String imageUrl;
   final String email;
 
-  User({
+  UserModel({
     this.uid,
     this.name,
     this.email,

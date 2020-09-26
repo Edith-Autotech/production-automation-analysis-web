@@ -3,7 +3,7 @@ import '../models/user.dart';
 import '../widgets/Cards/register_factory_card.dart';
 
 class RegisterScreen extends StatelessWidget {
-  final User user;
+  final UserModel user;
   RegisterScreen({this.user});
   @override
   Widget build(BuildContext context) {

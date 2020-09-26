@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:production_automation_web/models/factory.dart';
-import 'package:production_automation_web/models/machine.dart';
 import 'package:production_automation_web/models/user.dart';
 import 'package:production_automation_web/providers/auth.dart';
+import 'package:production_automation_web/providers/database.dart';
+import 'package:production_automation_web/services/api_path.dart';
 import 'package:production_automation_web/widgets/Cards/machine_card.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
-  final User user;
+  final UserModel user;
   final FactoryModel factory;
   HomeScreen({this.user, this.factory});
   @override
@@ -17,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
+  final FirebaseFirestore _instance = FirebaseFirestore.instance;
   void signOut() async {
     final auth = Provider.of<AuthBase>(context, listen: false);
     await auth.signOut();
@@ -25,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    final database = Provider.of<Database>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("Machines"),
@@ -39,10 +42,8 @@ class _HomeScreenState extends State<HomeScreen>
         ],
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: Firestore.instance
-            .collection("factories")
-            .document(widget.factory.key)
-            .collection("machines")
+        stream: _instance
+            .collection(ApiPath.machines(key: widget.factory.key))
             .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
@@ -51,23 +52,16 @@ class _HomeScreenState extends State<HomeScreen>
               return Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: GridView.builder(
-                  itemCount: data.documents.length,
+                  itemCount: data.docs.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4,
                     childAspectRatio: 150 / 90,
                   ),
                   itemBuilder: (context, index) {
                     return MachineCard(
-                      factory: widget.factory,
-                      machine: Machine(
-                        machineId: snapshot.data.documents[index].documentID,
-                        currentOperation: snapshot.data.documents[index]
-                            .data["working_operation_number"],
-                        currentPart: snapshot
-                            .data.documents[index].data["working_part_number"],
-                        state: snapshot.data.documents[index].data["state"],
-                      ),
-                    );
+                        factory: widget.factory,
+                        machine: database.returnMachineFromDocument(
+                            snapshot: snapshot.data.docs[index]));
                   },
                 ),
               );

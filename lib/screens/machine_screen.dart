@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:production_automation_web/models/count_model.dart';
+import 'package:production_automation_web/providers/database.dart';
+import 'package:production_automation_web/services/api_path.dart';
+import 'package:provider/provider.dart';
 import '../models/factory.dart';
 import '../models/machine.dart';
 import '../models/strokes_model.dart';
@@ -16,6 +19,7 @@ class MachineScreen extends StatefulWidget {
 }
 
 class _MachineScreenState extends State<MachineScreen> {
+  final FirebaseFirestore _instance = FirebaseFirestore.instance;
   final StrokesModel model = StrokesModel();
   final CountModel countModel = CountModel();
   CountModel _selectedModel;
@@ -24,28 +28,41 @@ class _MachineScreenState extends State<MachineScreen> {
   DateTime selectedDate = DateTime.now();
 
   Future<void> _fetchData() async {
+    final database = Provider.of<Database>(context, listen: false);
+    final String dateString = selectedDate.toString().split(" ")[0];
     setState(() {
       _isLoading = true;
     });
-    print(selectedDate);
-    DocumentReference machineDocument = Firestore.instance
-        .collection("factories")
-        .document(widget.factoryModel.key)
-        .collection("machines")
-        .document(widget.machine.machineId)
-        .collection("count")
-        .document(selectedDate.toString().split(" ")[0]);
-
-    DocumentSnapshot doc = await machineDocument.get();
-    CountModel count = countModel.fromDocumentSnapshot(
-        selectedDate.toString().split(" ")[0],
-        snapshot: doc);
-    setState(() {
-      _selectedModel = count;
-      _isLoading = false;
+    _instance
+        .doc(ApiPath.count(
+          date: dateString,
+          key: widget.factoryModel.key,
+          machineID: widget.machine.machineId,
+        ))
+        .snapshots()
+        .forEach((element) {
+      try {
+        CountModel count =
+            database.returnCountfromDocument(dateString, snapshot: element);
+        setState(() {
+          _selectedModel = count;
+          _isLoading = false;
+        });
+      } catch (error) {
+        setState(() {
+          _isLoading = false;
+          _selectedModel = CountModel(
+            count: 0,
+            date: dateString,
+            idleTime: "No Data",
+            productionTime: "No Data",
+            standbyTime: "No Data",
+          );
+        });
+      }
     });
-    print("Selected value is " + _selectedModel.standbyTime.toString());
   }
+
 
   @override
   void initState() {

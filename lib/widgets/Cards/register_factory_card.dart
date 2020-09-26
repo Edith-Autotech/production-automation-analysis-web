@@ -7,7 +7,7 @@ import '../../models/user.dart';
 import '../../providers/database.dart';
 
 class RegisterFactoryCard extends StatefulWidget {
-  final User user;
+  final UserModel user;
   RegisterFactoryCard({this.user});
   @override
   _RegisterFactoryCardState createState() => _RegisterFactoryCardState();

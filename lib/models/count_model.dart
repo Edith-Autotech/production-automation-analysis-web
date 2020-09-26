@@ -16,8 +16,8 @@ class CountModel {
   CountModel fromDocumentSnapshot(String date, {DocumentSnapshot snapshot}) =>
       CountModel(
           date: date,
-          count: snapshot.data['count'],
-          idleTime: snapshot.data['idle_time'],
-          productionTime: snapshot.data['production_time'],
-          standbyTime: snapshot.data['standby_time']);
+          count: snapshot.data()['count'],
+          idleTime: snapshot.data()['idle_time'],
+          productionTime: snapshot.data()['production_time'],
+          standbyTime: snapshot.data()['standby_time']);
 }

@@ -5,6 +5,7 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:production_automation_web/models/count_model.dart';
 import 'package:production_automation_web/models/machine.dart';
 import "package:production_automation_web/models/factory.dart";
+import 'package:production_automation_web/services/api_path.dart';
 import '../../models/strokes_model.dart';
 
 class StrokesChart extends StatefulWidget {
@@ -24,30 +25,28 @@ class StrokesChart extends StatefulWidget {
 }
 
 class _StrokesChartState extends State<StrokesChart> {
+  final FirebaseFirestore _instance = FirebaseFirestore.instance;
   List<StrokesModel> data = [];
   bool _isLoading = false;
-
   void _fetchData() {
     setState(() {
       _isLoading = true;
     });
-    DocumentReference machineDocument = Firestore.instance
-        .collection("factories")
-        .document(widget.factoryModel.key)
-        .collection("machines")
-        .document(widget.machine.machineId)
-        .collection("count")
-        .document(widget.countModel.date);
-    machineDocument
-        .collection("hourly_analysis")
+    print("Count is " + widget.countModel.count.toString());
+    print(widget.countModel.date);
+    _instance
+        .collection(ApiPath.hourlyAnalysis(
+            key: widget.factoryModel.key,
+            machineID: widget.machine.machineId,
+            dateString: widget.countModel.date))
         .snapshots()
         .forEach((element) {
-      element.documents.forEach((element) {
-        print(element.documentID);
+      element.docs.forEach((element) {
+        print(element.id);
         setState(
           () => data.add(StrokesModel(
-            xAxis: element.documentID,
-            strokes: element.data['count'],
+            xAxis: element.id,
+            strokes: element.data()['count'],
           )),
         );
       });

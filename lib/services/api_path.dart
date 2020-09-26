@@ -12,7 +12,8 @@ class ApiPath {
 
   static String machines({String key}) => "factories/$key/machines";
 
-  static String machine({String key, String machineID}) => "factories/$key/machines/$machineID";
+  static String machine({String key, String machineID}) =>
+      "factories/$key/machines/$machineID";
 
   static String parts({String key}) => "factories/$key/parts";
 
@@ -20,5 +21,10 @@ class ApiPath {
 
   static String factories({String uid}) => "user/$uid/Factories";
 
-  static String hourlyAnalysis({String key, String machineID, String dateString}) => "factories/$key/machines/$machineID/count/$dateString/hourly_analysis";
+  static String hourlyAnalysis(
+          {String key, String machineID, String dateString}) =>
+      "factories/$key/machines/$machineID/count/$dateString/hourly_analysis";
+
+  static String stock({String key, String partNumber}) =>
+      'factories/$key/parts/$partNumber/Stock';
 }

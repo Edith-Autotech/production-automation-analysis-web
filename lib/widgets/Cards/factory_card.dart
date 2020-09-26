@@ -16,7 +16,7 @@ class FactoryCard extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) => HomeScreen(
               user: user,
-              factory: factory,
+              factoryModel: factory,
             ),
           ),
         );

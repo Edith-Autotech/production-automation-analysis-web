@@ -4,6 +4,7 @@ import 'package:production_automation_web/models/count_model.dart';
 import 'package:production_automation_web/models/factory.dart';
 import 'package:production_automation_web/models/machine.dart';
 import 'package:production_automation_web/models/part.dart';
+import 'package:production_automation_web/models/stock.dart';
 import 'package:production_automation_web/models/user.dart';
 import 'package:production_automation_web/services/api_path.dart';
 
@@ -16,6 +17,7 @@ abstract class FirestoreDatabase {
   Future<CountModel> fetchCountModel();
   Machine returnMachineFromDocument();
   Part returnPartFromDocument();
+  Stock returnStockFromDocument();
   CountModel returnCountfromDocument(String date, {DocumentSnapshot snapshot});
 }
 
@@ -106,13 +108,22 @@ class Database with ChangeNotifier implements FirestoreDatabase {
   }
 
   @override
+  Stock returnStockFromDocument({DocumentSnapshot snapshot}) {
+    print(snapshot.data()['stock']);
+    print(snapshot.id);
+    return Stock(
+      operationNo: snapshot.id,
+      stock: snapshot.data()['stock'].toString(),
+    );
+  }
+
+  @override
   Future<CountModel> fetchCountModel(
       {FactoryModel factoryModel, Machine machineModel}) async {
     DateTime today = DateTime.now();
     String dateString = today.toString().split(" ")[0];
 
-    DocumentReference machineDocument =
-        _firebaseDatabase.doc(ApiPath.count(
+    DocumentReference machineDocument = _firebaseDatabase.doc(ApiPath.count(
       key: factoryModel.key,
       machineID: machineModel.machineId,
       date: dateString,

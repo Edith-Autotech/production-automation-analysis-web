@@ -25,7 +25,11 @@ class _HomeScreenState extends State<HomeScreen>
 
   void initState() {
     super.initState();
-    _controller = TabController(length: 2, vsync: this);
+    print(widget.user.admin);
+    if (widget.user.admin == "true")
+      _controller = TabController(length: 2, vsync: this);
+    else
+      _controller = TabController(length: 1, vsync: this);
     _controller.addListener(_handleController);
   }
 
@@ -35,13 +39,14 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Machines"),
+        title: Text(widget.factoryModel.name),
         bottom: TabBar(
           controller: _controller,
           tabs: [
-            Tab(
-              child: Text("Machines"),
-            ),
+            if (widget.user.admin == true)
+              Tab(
+                child: Text("Machines"),
+              ),
             Tab(
               child: Text("Stock"),
             )
@@ -60,8 +65,9 @@ class _HomeScreenState extends State<HomeScreen>
       body: TabBarView(
         controller: _controller,
         children: [
-          MachineTabBody(factoryModel: widget.factoryModel),
-          StockTabBody(factoryModel: widget.factoryModel),
+          if (widget.user.admin == true)
+            MachineTabBody(factoryModel: widget.factoryModel),
+          StockTabBody(user: widget.user, factoryModel: widget.factoryModel),
         ],
       ),
     );

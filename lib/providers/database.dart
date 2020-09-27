@@ -9,15 +9,21 @@ import 'package:production_automation_web/models/user.dart';
 import 'package:production_automation_web/services/api_path.dart';
 
 abstract class FirestoreDatabase {
-  Future<void> setFactory();
-  Future<void> updateOperationNo();
-  Future<void> confrmProductionState();
-  Future<void> updatePartNumber();
-  Future<void> updateReasonCode();
-  Future<CountModel> fetchCountModel();
-  Machine returnMachineFromDocument();
-  Part returnPartFromDocument();
-  Stock returnStockFromDocument();
+  Future<void> setFactory({UserModel user, String key, String name});
+  Future<void> updateOperationNo(
+      {FactoryModel factoryModel, Machine machineModel, int opNumber});
+  Future<void> confrmProductionState(
+      {FactoryModel factoryModel, Machine machineModel});
+  Future<void> updatePartNumber(
+      {FactoryModel factoryModel, Machine machineModel, Part selectedPart});
+  Future<void> updateReasonCode(
+      {FactoryModel factoryModel, Machine machineModel, String reason});
+  Future<CountModel> fetchCountModel(
+      {FactoryModel factoryModel, Machine machineModel});
+  Machine returnMachineFromDocument({DocumentSnapshot snapshot});
+  Part returnPartFromDocument({DocumentSnapshot snapshot});
+  FactoryModel returnFactoryFromDocument({DocumentSnapshot snapshot});
+  Stock returnStockFromDocument({DocumentSnapshot snapshot});
   CountModel returnCountfromDocument(String date, {DocumentSnapshot snapshot});
 }
 
@@ -114,6 +120,14 @@ class Database with ChangeNotifier implements FirestoreDatabase {
     return Stock(
       operationNo: snapshot.id,
       stock: snapshot.data()['stock'].toString(),
+    );
+  }
+
+  @override
+  FactoryModel returnFactoryFromDocument({DocumentSnapshot snapshot}) {
+    return FactoryModel(
+      key: snapshot.data()["key"],
+      name: snapshot.data()["name"],
     );
   }
 

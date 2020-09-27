@@ -4,6 +4,8 @@ class ApiPath {
   static String imageAssetPath({String imageName}) =>
       'assets/images/$imageName';
 
+  static String userDoc({String uid}) => 'user/$uid';
+
   static String factoryPath({String uid, String key}) =>
       'user/$uid/Factories/$key';
 

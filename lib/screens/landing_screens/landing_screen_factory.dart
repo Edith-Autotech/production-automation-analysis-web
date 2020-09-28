@@ -11,7 +11,7 @@ import '../../widgets/Cards/register_factory_card.dart';
 
 class FactoryLandingSCreen extends StatefulWidget {
   final UserModel user;
-  FactoryLandingSCreen({this.user});
+  FactoryLandingSCreen({@required this.user});
   @override
   _FactoryLandingSCreenState createState() => _FactoryLandingSCreenState();
 }

@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 class HomeScreen extends StatefulWidget {
   final UserModel user;
   final FactoryModel factoryModel;
-  HomeScreen({this.user, this.factoryModel});
+  HomeScreen({@required this.user, this.factoryModel});
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen>
         bottom: TabBar(
           controller: _controller,
           tabs: [
-            if (widget.user.admin == true)
+            if (widget.user.admin == "true")
               Tab(
                 child: Text("Machines"),
               ),
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen>
       body: TabBarView(
         controller: _controller,
         children: [
-          if (widget.user.admin == true)
+          if (widget.user.admin == "true")
             MachineTabBody(factoryModel: widget.factoryModel),
           StockTabBody(user: widget.user, factoryModel: widget.factoryModel),
         ],

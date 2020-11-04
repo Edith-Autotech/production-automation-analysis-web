@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:production_automation_web/providers/database.dart';
 import 'package:production_automation_web/services/api_path.dart';
 import 'package:provider/provider.dart';
-import '../../models/factory.dart';
 import '../../models/user.dart';
 import '../../screens/register_screen.dart';
 import '../../widgets/Cards/factory_card.dart';

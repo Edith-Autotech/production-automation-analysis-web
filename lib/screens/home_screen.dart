@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen>
         children: [
           if (widget.user.admin == "true")
             MachineTabBody(factoryModel: widget.factoryModel),
-          StockTabBody(user: widget.user, factoryModel: widget.factoryModel),
+          StockTabBody(user: widget.user, factoryModel: widget.factoryModel,),
         ],
       ),
     );

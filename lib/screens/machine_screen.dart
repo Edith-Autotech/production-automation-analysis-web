@@ -37,7 +37,7 @@ class _MachineScreenState extends State<MachineScreen> {
         .doc(ApiPath.count(
           date: dateString,
           key: widget.factoryModel.key,
-          machineID: widget.machine.machineId,
+          machineID: widget.machine.id,
         ))
         .snapshots()
         .forEach((element) {
@@ -62,7 +62,6 @@ class _MachineScreenState extends State<MachineScreen> {
       }
     });
   }
-
 
   @override
   void initState() {
@@ -95,7 +94,7 @@ class _MachineScreenState extends State<MachineScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.machine.machineId),
+        title: Text(widget.machine.id),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -148,6 +147,8 @@ class _MachineScreenState extends State<MachineScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
+                                _rowItem(
+                                    label: "Name", value: widget.machine.name),
                                 _rowItem(
                                     label: "Date", value: _selectedModel.date),
                                 _rowItem(

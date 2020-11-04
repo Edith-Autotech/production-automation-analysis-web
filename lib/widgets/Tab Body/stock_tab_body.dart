@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:production_automation_web/models/factory.dart';
+import 'package:production_automation_web/models/machine.dart';
 import 'package:production_automation_web/models/part.dart';
 import 'package:production_automation_web/models/user.dart';
 import 'package:production_automation_web/providers/database.dart';
@@ -54,27 +55,21 @@ class _StockTabBodyState extends State<StockTabBody> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Center(
-              child: StreamBuilder<QuerySnapshot>(
-                  stream: _instance
-                      .collection(ApiPath.parts(key: widget.factoryModel.key))
-                      .snapshots(),
+              child: StreamBuilder<List<Part>>(
+                  stream: database.getParts(model: widget.factoryModel),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.active) {
                       if (snapshot.hasData) {
-                        QuerySnapshot data = snapshot.data;
+                        List<Part> data = snapshot.data;
                         return Stack(
                           children: [
                             ListView.builder(
-                              itemCount: returnParts(snapshot: data).length,
+                              itemCount: data.length,
                               itemBuilder: (context, index) => PartCard(
                                 factoryModel: widget.factoryModel,
-                                part: database.returnPartFromDocument(
-                                    snapshot:
-                                        returnParts(snapshot: data)[index]),
-                                handler: () => setState(() => _selectedPart =
-                                    database.returnPartFromDocument(
-                                        snapshot: returnParts(
-                                            snapshot: data)[index])),
+                                part: data[index],
+                                handler: () =>
+                                    setState(() => _selectedPart = data[index]),
                               ),
                             ),
                             Positioned(
@@ -82,11 +77,7 @@ class _StockTabBodyState extends State<StockTabBody> {
                               child: Container(
                                 color: Colors.black.withOpacity(1.0),
                                 child: SearchWidget<Part>(
-                                  dataList: data.docs
-                                      .map((doc) =>
-                                          database.returnPartFromDocument(
-                                              snapshot: doc))
-                                      .toList(),
+                                  dataList: data,
                                   popupListItemBuilder: (part) =>
                                       PartTile(part: part),
                                   hideSearchBoxWhenItemSelected: false,
@@ -117,11 +108,7 @@ class _StockTabBodyState extends State<StockTabBody> {
                                       () => _selectedPart = selectedPart,
                                     ),
                                   ),
-                                  queryBuilder: (query, list) => data.docs
-                                      .map((doc) =>
-                                          database.returnPartFromDocument(
-                                              snapshot: doc))
-                                      .toList()
+                                  queryBuilder: (query, list) => data
                                       .where((part) => part.partNumber
                                           .toLowerCase()
                                           .contains(query.toLowerCase()))

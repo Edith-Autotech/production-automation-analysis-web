@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   TabController _controller;
   void signOut() async {
-    final auth = Provider.of<AuthBase>(context, listen: false);
+    final auth = Provider.of<Auth>(context, listen: false);
     await auth.signOut();
     Navigator.of(context).pop();
   }

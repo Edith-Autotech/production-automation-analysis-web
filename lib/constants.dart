@@ -1,4 +1,11 @@
+import 'package:flutter/material.dart';
+
 class Constants {
+  static const primaryColor = Color(0xFF2697FF);
+  static const secondaryColor = Color(0xFF2A2D3E);
+  static const bgColor = Color(0xFF212332);
+
+  static const defaultPadding = 16.0;
   // ? UI Constants
   static const String name = "Name";
   static const String count = "Count";

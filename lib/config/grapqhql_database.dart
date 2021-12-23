@@ -16,7 +16,7 @@ abstract class ApiDatabase {
     String password,
   );
   Future<UserModel> currentUser(String token);
-  Future<List<FactoryModel>> factories(String token);
+  Future<FactoryModel> factory(String token);
   Future<List<Machine>> machines(
     String token,
     String factoryId,
@@ -123,15 +123,11 @@ class GraphQLDatabase extends ApiDatabase {
   }
 
   @override
-  Future<List<FactoryModel>> factories(String token) async {
+  Future<FactoryModel> factory(String token) async {
     final GraphQLClient _client = _config.authClientToQuery(token);
-    final QueryResult result = await _client.query(QueryOptions(document: gql(_schema.factories())));
+    final QueryResult result = await _client.query(QueryOptions(document: gql(_schema.factory())));
     // // print(result.data!['factories']);
-    return (result.data!['factories'] as List)
-        .map(
-          (factory) => FactoryModel.fromMap(factory),
-        )
-        .toList();
+    return FactoryModel.fromMap(result.data!['factory']);
   }
 
   @override
@@ -140,7 +136,7 @@ class GraphQLDatabase extends ApiDatabase {
     final QueryResult result = await _client.query(QueryOptions(
       document: gql(_schema.machines(factoryId)),
     ));
-    // // print(result.data!['machines']);
+    // print(result.data!['machines']);
     return (result.data!['machines'] as List)
         .map(
           (machine) => Machine.fromMap(machine),
@@ -200,21 +196,21 @@ class GraphQLDatabase extends ApiDatabase {
   @override
   Future<void> updateMachine(String token, Machine machine) async {
     final GraphQLClient _client = _config.authClientToQuery(token);
-    print(machine);
+    // print(machine);
     await _client
         .mutate(
           MutationOptions(
               document: gql(
             _schema.updateMachine(
-              machineName: machine.name!,
+              machineName: machine.machineName,
               machineId: machine.id,
-              currentPart1: machine.currentPart1,
+              currentPart1: machine.currentPart_1,
               state: machine.state,
               previousTimeStroke: machine.previousTimeStroke,
               reasonCode: machine.reasonCode,
-              currentOperation1: machine.currentOperation1,
-              currentPart2: machine.currentPart2,
-              currentOperation2: machine.currentOperation2,
+              currentOperation1: machine.currentOperation_1,
+              currentPart2: machine.currentPart_2,
+              currentOperation2: machine.currentOperation_2,
               parallelState: machine.parallelState,
             ),
           )),
@@ -227,12 +223,12 @@ class GraphQLDatabase extends ApiDatabase {
   @override
   Future<Part> part(String token, String partNumber) async {
     final GraphQLClient _client = _config.authClientToQuery(token);
-    print(partNumber);
+    // print(partNumber);
     final QueryResult result = await _client.query(
       QueryOptions(document: gql(_schema.part(partNumber))),
     );
-    print(result);
-    print(result.data!['part']);
+    // print(result);
+    // print(result.data!['part']);
     return Part.fromMap(result.data!['part']);
   }
 

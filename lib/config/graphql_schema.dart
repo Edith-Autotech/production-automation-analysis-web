@@ -4,7 +4,7 @@ import '/src/models/state_enum.dart';
 abstract class Schema {
   String login(String email, String password);
   String user();
-  String factories();
+  String factory();
   String machines(String factoryId);
   String machine(String machineId);
   String part(String partNumber);
@@ -85,10 +85,10 @@ class GraphQLSchema extends Schema {
   }
 
   @override
-  String factories() {
+  String factory() {
     return ''' 
-    query factories{
-      factories{
+    query Factory {
+      factory {
         _id
         userId
         factoryName

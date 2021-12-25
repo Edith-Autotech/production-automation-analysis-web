@@ -5,7 +5,7 @@ import 'package:production_automation_web/src/models/machine.dart';
 import 'package:production_automation_web/src/widgets/loading_spinner/loading_spinner.dart';
 import 'package:provider/provider.dart';
 
-import '../../../responsive.dart';
+// import '../../../responsive.dart';
 import 'components/machine_card_grid_view.dart';
 
 class MachinesScreen extends StatefulWidget {

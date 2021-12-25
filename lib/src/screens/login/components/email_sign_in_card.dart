@@ -41,9 +41,9 @@ class _EmailSignInCardState extends State<EmailSignInCard> with SingleTickerProv
 
       await _storage.write(key: "jwt", value: response);
 
-      Navigator.pushReplacementNamed(context, routeAuthLanding);
+      Navigator.pushNamed(context, routeMachines);
     } catch (error) {
-      // print(error);
+      print(error);
       Fluttertoast.showToast(msg: error.toString());
     }
   }

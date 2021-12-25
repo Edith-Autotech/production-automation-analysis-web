@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 import 'package:production_automation_web/constants.dart';
 // import 'package:production_automation_web/src/models/MyFiles.dart';
-import 'package:production_automation_web/src/models/machine.dart';
-import 'package:production_automation_web/src/models/state_enum.dart';
-import 'package:production_automation_web/src/routes/routes.dart';
-import 'package:production_automation_web/src/screens/dashboard/dashboard.dart';
-import 'package:production_automation_web/src/widgets/label/label.dart';
+// import 'package:production_automation_web/src/models/machine.dart';
+// import 'package:production_automation_web/src/models/state_enum.dart';
+// import 'package:production_automation_web/src/routes/routes.dart';
+// import 'package:production_automation_web/src/screens/dashboard/dashboard.dart';
+// import 'package:production_automation_web/src/widgets/label/label.dart';
 
 class StateCard extends StatelessWidget {
   const StateCard({
@@ -27,7 +27,7 @@ class StateCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+        children:const [
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
           //   children: [

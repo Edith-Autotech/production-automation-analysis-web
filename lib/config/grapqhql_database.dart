@@ -118,7 +118,7 @@ class GraphQLDatabase extends ApiDatabase {
 
     // print(result.data!['deleteSubscribedDevice']);
 
-    // ! fix return type
+    // TODO fix return type
     return true;
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:production_automation_web/src/routes/routes.dart';
 import 'package:production_automation_web/src/screens/machines/machines_screen.dart';
@@ -15,7 +16,14 @@ class SideMenu extends StatefulWidget {
 }
 
 class _SideMenuState extends State<SideMenu> {
+  final FlutterSecureStorage _storage = const FlutterSecureStorage();
   int index = 0;
+
+  void logout() async {
+    await _storage.delete(key: 'jwt');
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -60,6 +68,11 @@ class _SideMenuState extends State<SideMenu> {
             },
             selected: index == 3,
           ),
+          _listTile(
+            title: "logout",
+            svgSrc: "assets/icons/menu_setting.svg",
+            onTap: logout,
+          ),
         ],
       ),
     );
@@ -91,7 +104,7 @@ class _SideMenuState extends State<SideMenu> {
   ListTile _listTile({
     required String title,
     required String svgSrc,
-    required bool selected,
+    bool selected = false,
     required void Function() onTap,
   }) {
     return ListTile(

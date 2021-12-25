@@ -9,7 +9,6 @@ import 'package:production_automation_web/src/routes/routes.dart';
 import 'package:production_automation_web/src/screens/landing_screens/landing_screen_auth.dart';
 // import 'package:production_automation_web/src/screens/main/main.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 import 'config/graphql_config.dart';
 import 'config/grapqhql_database.dart';
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
             canvasColor: Constants.secondaryColor,
           ),
           builder: (ctx, child) => LandingScreen(child: child),
-          initialRoute: routeAuthLanding,
+          // initialRoute: routeAuthLanding,
           navigatorKey: navKey,
           onGenerateRoute: RouteGenerator.generateRoute,
         ),

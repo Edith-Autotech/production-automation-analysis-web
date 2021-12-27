@@ -4,11 +4,18 @@ import 'package:production_automation_web/helper/responsive.dart';
 
 import '../custom_text.dart';
 
-AppBar topNavigationBar(BuildContext context) {
+AppBar topNavigationBar(
+  BuildContext context,
+  GlobalKey<ScaffoldState> scaffoldKey,
+) {
   return AppBar(
     leading: ResponsiveWidget.isSmallScreen(context)
         ? IconButton(
-            onPressed: () {},
+            onPressed: () {
+              if (!scaffoldKey.currentState!.isDrawerOpen) {
+                scaffoldKey.currentState!.openDrawer();
+              }
+            },
             icon: Icon(
               Icons.menu,
               color: dark,

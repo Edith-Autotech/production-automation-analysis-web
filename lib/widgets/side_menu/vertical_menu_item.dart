@@ -39,6 +39,7 @@ class VerticalMenuItem extends StatelessWidget {
               ),
               Expanded(
                   child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(16),

@@ -6,6 +6,9 @@ const overViewPageRouteName = "/overview";
 const machinesPageDisplayName = "Machines";
 const machinesPageRouteName = "/machines";
 
+const dashboardPageDisplayName = "Dashboard";
+const dashboardPageRouteName = "/dashboard";
+
 const partsPageDisplayName = "Parts";
 const partsPageRouteName = "/parts";
 

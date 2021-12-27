@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:production_automation_web/constants/controllers.dart';
-import 'package:production_automation_web/helper/responsive.dart';
-import 'package:production_automation_web/widgets/custom_text.dart';
+
+import '/constants/controllers.dart';
+import '/helper/responsive.dart';
+import '/widgets/custom_text.dart';
 
 class BasePageLayout extends StatelessWidget {
   final List<Widget>? children;

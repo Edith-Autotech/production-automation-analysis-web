@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-Widget loadingSpinner(BuildContext context) {
-  final ThemeData theme = Theme.of(context);
+import '/constants/style.dart';
+
+Widget loadingSpinner() {
   return Center(
-    child: CircularProgressIndicator(
-      color: theme.colorScheme.secondary,
-    ),
+    child: CircularProgressIndicator(color: active),
   );
 }

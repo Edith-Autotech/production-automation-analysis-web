@@ -3,24 +3,24 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-import '/config/graphql_config.dart';
+import 'config/graphql_config.dart';
 
 import 'layout.dart';
-import '/constants/style.dart';
+import 'constants/style.dart';
 
-import '/controllers/menu_controller.dart';
-import '/controllers/navigation_controller.dart';
-
-import '/controllers/factory_controller.dart';
+import 'controllers/menu_controller.dart';
+import 'controllers/navigation_controller.dart';
+import 'controllers/factory_controller.dart';
 import 'controllers/machine_controller.dart';
-
-import '/controllers/user_controller.dart';
-import '/controllers/count_controller.dart';
+import 'controllers/user_controller.dart';
+import 'controllers/count_controller.dart';
+import 'controllers/part_controller.dart';
 
 void main() {
   Get.put(UserController());
   Get.put(FactoryController());
   Get.put(MachineController());
+  Get.put(PartController());
   Get.put(CountController());
   Get.put(MenuController());
   Get.put(NavigationController());

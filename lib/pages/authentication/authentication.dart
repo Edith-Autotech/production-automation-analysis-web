@@ -7,6 +7,10 @@ class AuthenticationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const BasePageLayout();
+    return BasePageLayout(
+      child: ListView(
+        children: const [],
+      ),
+    );
   }
 }

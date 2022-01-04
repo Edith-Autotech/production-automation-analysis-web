@@ -1,3 +1,5 @@
+import 'package:production_automation_web/controllers/part_controller.dart';
+
 import '/controllers/count_controller.dart';
 import '/controllers/user_controller.dart';
 
@@ -18,3 +20,5 @@ MachineController machineController = MachineController.instance;
 UserController userController = UserController.instance;
 
 CountController countController = CountController.instance;
+
+PartController partController = PartController.instance;

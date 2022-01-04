@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:production_automation_web/constants/controllers.dart';
-import 'package:production_automation_web/constants/style.dart';
-import 'package:production_automation_web/models/state_enum.dart';
-import 'package:production_automation_web/widgets/custom_text.dart';
+
+import '/constants/controllers.dart';
+import '/constants/style.dart';
+import '/models/state_enum.dart';
+import '/widgets/custom_text.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key}) : super(key: key);
+
+  void selectDate(BuildContext context) async {
+    final dateTime = await showDatePicker(
+      context: context,
+      initialDate: DateTime.parse(countController.activeDate.value),
+      firstDate: DateTime(2019),
+      lastDate: DateTime.now(),
+    );
+    if (dateTime != null) {
+      countController.updateActiveDate(dateTime.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,25 +34,30 @@ class Header extends StatelessWidget {
           ),
           Expanded(child: Container()),
           CustomText(
-            text: returnStringFromEnum(machineController.selectedMachine.value.state),
+            text: returnStringFromEnum(
+              machineController.selectedMachine.value.state,
+            ),
             weight: FontWeight.bold,
-            size: 20,
-            color: returnColorFromEnum(machineController.selectedMachine.value.state),
+            size: defaultPadding,
+            color: returnColorFromEnum(
+              machineController.selectedMachine.value.state,
+            ),
           ),
           Expanded(child: Container()),
-          CustomText(text: countController.todaysDate.value),
-          const SizedBox(width: 20),
+          CustomText(
+            text: countController.activeDate.value,
+            weight: FontWeight.w600,
+            size: 18,
+          ),
+          SizedBox(width: defaultPadding),
           Padding(
-            padding: const EdgeInsets.only(right: 10.0),
+            padding: EdgeInsets.only(right: defaultPadding),
             child: IconButton(
-              alignment: Alignment.center,
               icon: const Icon(
                 Icons.date_range,
                 size: 30,
               ),
-              onPressed: () {
-                // ! show date picker here
-              },
+              onPressed: () => selectDate(context),
             ),
           )
         ],

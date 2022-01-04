@@ -143,7 +143,6 @@ class GraphQLSchema extends Schema {
         partName
         partNumber
         stock {
-          _id
           stock
           operationNumber
         }

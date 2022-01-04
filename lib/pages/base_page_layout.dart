@@ -6,8 +6,8 @@ import '/helper/responsive.dart';
 import '/widgets/custom_text.dart';
 
 class BasePageLayout extends StatelessWidget {
-  final List<Widget>? children;
-  const BasePageLayout({Key? key, this.children}) : super(key: key);
+  final Widget child;
+  const BasePageLayout({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +27,7 @@ class BasePageLayout extends StatelessWidget {
                 )
               ],
             )),
-        Expanded(
-          child: ListView(
-            children: children ?? [],
-          ),
-        )
+        Expanded(child: child)
       ],
     );
   }

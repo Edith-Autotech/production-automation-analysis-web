@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:production_automation_web/constants/style.dart';
 
 enum machineStateEnum {
   production,
@@ -29,15 +30,15 @@ String returnStringFromEnum(machineStateEnum stateEnum) {
   return "no data";
 }
 
-MaterialColor returnColorFromEnum(machineStateEnum stateEnum) {
+Color returnColorFromEnum(machineStateEnum stateEnum) {
   if (stateEnum == machineStateEnum.production) {
-    return Colors.green;
+    return production;
   } else if (stateEnum == machineStateEnum.standby) {
-    return Colors.red;
+    return standby;
   } else if (stateEnum == machineStateEnum.idle) {
-    return Colors.yellow;
+    return idle;
   }
-  return Colors.green;
+  return production;
 }
 
 Icon? returnMediaFromEnum(machineStateEnum stateEnum) {

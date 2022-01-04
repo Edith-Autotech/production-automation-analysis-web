@@ -1,4 +1,3 @@
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import '/constants/controllers.dart';
@@ -26,7 +25,8 @@ class FactoryController extends GetxController {
         }
       }
     } catch (error) {
-      Fluttertoast.showToast(msg: error.toString());
+      // print(error);
+      // Fluttertoast.showToast(msg: error.toString());
     } finally {
       updateLoading(false);
     }

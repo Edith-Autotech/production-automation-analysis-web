@@ -10,10 +10,14 @@ class CountController extends GetxController {
 
   var isLoading = false.obs;
   var todaysCount = Count().obs;
-  var todaysDate = "2021-07-23".obs;
+  var activeDate = "2021-07-23".obs;
 
   updateLoading(bool _loading) {
     isLoading.value = _loading;
+  }
+
+  updateActiveDate(String newDateString) {
+    activeDate.value = newDateString.split(" ")[0];
   }
 
   updateTodaysCount(Count _count) {
@@ -25,12 +29,13 @@ class CountController extends GetxController {
     try {
       var count = await CountService.dailyCount(
         userController.authToken.value,
-        todaysDate.value,
+        activeDate.value,
         machineController.selectedMachine.value.id,
       );
       // print(count);
       if (count != null) {
         updateTodaysCount(count);
+        updateLoading(false);
       }
     } catch (error) {
       // print(error);

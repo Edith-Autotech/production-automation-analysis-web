@@ -34,15 +34,15 @@ class Part {
   final int noOfOperations;
   final String partName;
   final String partNumber;
-  final List<Stock> stock;
+  final List<Stock>? stock;
   Part({
-    required this.partId,
-    required this.factoryId,
-    required this.companyName,
-    required this.noOfOperations,
-    required this.partName,
-    required this.partNumber,
-    required this.stock,
+    this.partId = "",
+    this.factoryId = "",
+    this.companyName = "",
+    this.noOfOperations = 0,
+    this.partName = "",
+    this.partNumber = "",
+    this.stock,
   });
 
   Part copyWith({
@@ -73,7 +73,7 @@ class Part {
       'noOfOperations': noOfOperations,
       'partName': partName,
       'partNumber': partNumber,
-      'stock': stock.map((x) => x.toMap()).toList(),
+      'stock': stock!.map((x) => x.toMap()).toList(),
     };
   }
 

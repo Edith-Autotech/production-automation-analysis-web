@@ -11,3 +11,14 @@ class NavigationController extends GetxController {
 
   goBack() => navKey.currentState!.pop();
 }
+
+class SettingsNavigationController extends GetxController {
+  static SettingsNavigationController instance = Get.find();
+  final GlobalKey<NavigatorState> settingsNavKey = GlobalKey();
+
+  Future<dynamic> navigateTo(String routeName) {
+    return settingsNavKey.currentState!.pushNamed(routeName);
+  }
+
+  goBack() => settingsNavKey.currentState!.pop();
+}

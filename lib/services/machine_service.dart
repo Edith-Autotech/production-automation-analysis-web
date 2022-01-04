@@ -26,6 +26,8 @@ class MachineService {
     String token,
     String factoryId,
   ) async {
+    // print(token);
+    // print(factoryId);
     try {
       final GraphQLClient _client = _config.authClientToQuery(token);
       final QueryResult result = await _client.query(QueryOptions(

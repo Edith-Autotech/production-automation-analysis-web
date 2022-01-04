@@ -11,59 +11,60 @@ import 'dart:convert';
 // * ----------------------------------------------------------------------
 class UserModel {
   final String uid;
-  final bool admin; // ? will be implemented in v1.0.5+2
+  // final bool admin; // ? will be implemented in v1.0.5+2
   final String name;
   final String email;
   final String? comapanyName; // ? will be implemented in v1.0.5+2
+  final String factoryId;
+  final String role;
 
   UserModel({
+    // this.admin = true,
     this.uid = "",
-    this.admin = true,
     this.name = "",
     this.email = "",
     this.comapanyName,
+    this.factoryId = '',
+    this.role = '',
   });
 
   UserModel copyWith({
     String? uid,
-    bool? admin,
     String? name,
-    String? imageUrl,
     String? email,
     String? comapanyName,
+    String? factoryId,
+    String? role,
   }) {
     return UserModel(
       uid: uid ?? this.uid,
-      admin: admin ?? this.admin,
       name: name ?? this.name,
       email: email ?? this.email,
       comapanyName: comapanyName ?? this.comapanyName,
+      factoryId: factoryId ?? this.factoryId,
+      role: role ?? this.role,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'uid': uid,
-      'admin': admin,
       'name': name,
       'email': email,
       'comapanyName': comapanyName,
+      'factoryId': factoryId,
+      'role': role,
     };
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
-// {
-//   "_id": "610b93515f0635ab09ceb742",
-//   "email": "omkar.tralsawala@gmail.com",
-//   "name": "OMKAR TRALSAWALA"
-// }
-    Map<String, String?> userData = map['data']['user'];
     return UserModel(
-      uid: userData['_id']!,
-      admin: true,
-      name: userData['name']!,
-      email: userData['email']!,
-      comapanyName: "undefined",
+      uid: map['_id'] ?? '',
+      name: map['name'] ?? '',
+      email: map['email'] ?? '',
+      comapanyName: map['comapanyName'],
+      factoryId: map['factoryId'] ?? '',
+      role: map['role'] ?? '',
     );
   }
 
@@ -73,24 +74,25 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel(uid: $uid, admin: $admin, name: $name, email: $email, comapanyName: $comapanyName)';
+    return 'UserModel(uid: $uid, name: $name, email: $email, comapanyName: $comapanyName, factoryId: $factoryId, role: $role)';
   }
 
   @override
   // ignore: avoid_renaming_method_parameters
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is UserModel &&
-        o.uid == uid &&
-        o.admin == admin &&
-        o.name == name &&
-        o.email == email &&
-        o.comapanyName == comapanyName;
+    return other is UserModel &&
+        other.uid == uid &&
+        other.name == name &&
+        other.email == email &&
+        other.comapanyName == comapanyName &&
+        other.factoryId == factoryId &&
+        other.role == role;
   }
 
   @override
   int get hashCode {
-    return uid.hashCode ^ admin.hashCode ^ name.hashCode ^ email.hashCode ^ comapanyName.hashCode;
+    return uid.hashCode ^ name.hashCode ^ email.hashCode ^ comapanyName.hashCode ^ factoryId.hashCode ^ role.hashCode;
   }
 }

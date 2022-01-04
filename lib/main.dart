@@ -5,13 +5,15 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 
 import 'config/graphql_config.dart';
 
-import 'layout.dart';
 import 'constants/style.dart';
+
+import '/pages/authentication/auth_landing.dart';
 
 import 'controllers/menu_controller.dart';
 import 'controllers/navigation_controller.dart';
 import 'controllers/factory_controller.dart';
 import 'controllers/machine_controller.dart';
+import 'controllers/settings_menu_controller.dart';
 import 'controllers/user_controller.dart';
 import 'controllers/count_controller.dart';
 import 'controllers/part_controller.dart';
@@ -23,7 +25,9 @@ void main() {
   Get.put(PartController());
   Get.put(CountController());
   Get.put(MenuController());
+  Get.put(SettingsMenuController());
   Get.put(NavigationController());
+  Get.put(SettingsNavigationController());
   runApp(MyApp());
 }
 
@@ -54,7 +58,7 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.blue,
         ),
-        home: SiteLayout(),
+        home: const AuthLanding(),
       ),
     );
   }

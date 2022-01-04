@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:production_automation_web/constants/style.dart';
-import 'package:production_automation_web/helper/responsive.dart';
+import 'package:get/get.dart';
+
+import '/constants/controllers.dart';
+import '/constants/style.dart';
+import '/helper/responsive.dart';
 
 import '../custom_text.dart';
 
@@ -43,42 +46,20 @@ AppBar topNavigationBar(
           ),
         ),
         Expanded(child: Container()),
-        Stack(
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.notifications,
-                color: dark.withOpacity(.7),
-              ),
-            ),
-            Positioned(
-              top: 7,
-              right: 7,
-              child: Container(
-                height: 12,
-                width: 12,
-                padding: const EdgeInsets.all(4),
-                decoration: BoxDecoration(
-                  color: active,
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: light, width: 2),
-                ),
-              ),
-            )
-          ],
+        SizedBox(width: defaultPadding),
+        Obx(
+          () => CustomText(
+            text: userController.activeUser.value.name,
+            color: lightGrey,
+          ),
         ),
+        SizedBox(width: defaultPadding),
         Container(
           width: 1,
           height: 22,
           color: lightGrey,
         ),
-        const SizedBox(width: 24),
-        CustomText(
-          text: "Omkar Tralsawala",
-          color: lightGrey,
-        ),
-        const SizedBox(width: 16),
+        SizedBox(width: defaultPadding),
         Container(
           decoration: BoxDecoration(
             color: Colors.white,

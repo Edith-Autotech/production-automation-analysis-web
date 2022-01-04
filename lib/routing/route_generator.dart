@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '/pages/dashboard/dashboard.dart';
-import '/pages/authentication/authentication.dart';
 import '/pages/machines/machines.dart';
 import '/pages/overview/overview.dart';
 import '/pages/parts/parts.dart';
@@ -23,8 +22,6 @@ Route<dynamic> generateRoutes(RouteSettings settings) {
       return _getPageRoute(const ProfilePage());
     case settingsPageDisplayName:
       return _getPageRoute(const SettingsPage());
-    case authenticationPageDisplayName:
-      return _getPageRoute(const AuthenticationPage());
     default:
       return _getPageRoute(const OverviewPage());
   }

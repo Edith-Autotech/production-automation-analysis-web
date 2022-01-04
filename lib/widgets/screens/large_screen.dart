@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:production_automation_web/helper/local_navigation.dart';
-import 'package:production_automation_web/widgets/side_menu/side_menu.dart';
+
+import '/helper/local_navigation.dart';
+
+import '/widgets/side_menu/side_menu.dart';
 
 class LargeScreen extends StatelessWidget {
   const LargeScreen({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../machine_grid_tile/machine_grid_tile.dart';
+
 import '/constants/controllers.dart';
 import '/widgets/grid_view.dart';
-
-import '../grid_tile/machine_grid_tile.dart';
 
 class MachinesLargeScreen extends StatelessWidget {
   const MachinesLargeScreen({Key? key}) : super(key: key);

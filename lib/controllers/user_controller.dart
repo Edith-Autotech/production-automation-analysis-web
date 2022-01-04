@@ -28,15 +28,20 @@ class UserController extends GetxController {
       authToken.value = token;
     }
     // print(authToken.value);
+    await getCurrentUser();
     updateLoading(false);
   }
 
   getCurrentUser() async {
-    updateLoading(true);
+    // updateLoading(true);
     var user = await UserService.currentUser(authToken.value);
     if (user != null) {
       activeUser.value = user;
     }
-    updateLoading(false);
+    // updateLoading(false);
+  }
+
+  logout() {
+    authToken.value = "";
   }
 }

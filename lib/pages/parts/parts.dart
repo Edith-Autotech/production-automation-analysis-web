@@ -28,7 +28,7 @@ class _PartsPageState extends State<PartsPage> {
   }
 
   getData() async {
-    await factoryController.getFactory();
+    // await factoryController.getFactory();
     await partController.fetchParts();
   }
 

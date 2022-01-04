@@ -234,6 +234,8 @@ class GraphQLSchema extends Schema {
         _id
         email
         name
+        role
+        factoryId
       }
     }
     ''';

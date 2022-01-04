@@ -29,7 +29,7 @@ class _MachinesPageState extends State<MachinesPage> {
   }
 
   Future<void> getData() async {
-    await factoryController.getFactory();
+    // await factoryController.getFactory();
     await machineController.fetchMachines();
   }
 

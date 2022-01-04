@@ -25,7 +25,7 @@ class MachineController extends GetxController {
     try {
       var machines = await MachineService.machines(
         userController.authToken.value,
-        factoryController.activeFactory.value.factoryId,
+        userController.activeUser.value.factoryId,
       );
       if (machines != null) {
         machineList.value = machines;

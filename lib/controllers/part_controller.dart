@@ -34,7 +34,7 @@ class PartController extends GetxController {
     updateLoading(true);
     var _parts = await PartService.parts(
       userController.authToken.value,
-      factoryController.activeFactory.value.factoryId,
+      userController.activeUser.value.factoryId,
     );
     // print(_parts);
     if (_parts != null) {

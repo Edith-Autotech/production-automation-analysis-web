@@ -10,8 +10,8 @@ import 'widgets/screens/small_scren.dart';
 
 class SiteLayout extends StatelessWidget {
   SiteLayout({Key? key}) : super(key: key);
-
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

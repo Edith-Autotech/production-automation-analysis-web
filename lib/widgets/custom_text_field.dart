@@ -49,9 +49,18 @@ class CustomTextField extends StatelessWidget {
           ),
           labelText: labelText,
           hintText: hintText,
-          hintStyle: TextStyle(color: dark),
+          hintStyle: TextStyle(color: lightGrey),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(defaultPadding),
+            borderSide: BorderSide(color: lightGrey),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(defaultPadding),
+            borderSide: BorderSide(color: lightGrey),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(defaultPadding),
+            borderSide: BorderSide(color: active),
           ),
           focusColor: lightGrey,
           errorText: errorText,

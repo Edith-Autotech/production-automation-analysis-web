@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'state_enum.dart';
+import '../helper/state_enum.dart';
 // ? Machine Model
 
 // * ---------------------------RESPONSE--------------------------

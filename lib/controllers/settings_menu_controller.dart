@@ -19,9 +19,9 @@ class SettingsMenuController extends GetxController {
     if (!isActive(itemName)) hoverItem.value = itemName;
   }
 
-  isActive(String itemName) => itemName == activeItem.value;
+  bool isActive(String itemName) => itemName == activeItem.value;
 
-  isHovering(String itemName) => itemName == hoverItem.value;
+  bool isHovering(String itemName) => itemName == hoverItem.value;
 
   Widget retrunIconFor(String itemName) {
     switch (itemName) {

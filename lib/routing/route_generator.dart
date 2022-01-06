@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '/pages/dashboard/dashboard.dart';
-import '/pages/machines/machines.dart';
-import '/pages/overview/overview.dart';
-import '/pages/parts/parts.dart';
-import '/pages/profile/profile.dart';
-import '/pages/settings/settings.dart';
+import '/views/dashboard/dashboard.dart';
+import '/views/machines/machines.dart';
+import '/views/overview/overview.dart';
+import '/views/parts/parts.dart';
+import '/views/profile/profile.dart';
+import '/views/settings/settings.dart';
 import '/routing/routes.dart';
 
 Route<dynamic> generateRoutes(RouteSettings settings) {

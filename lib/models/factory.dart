@@ -13,11 +13,9 @@ import 'dart:convert';
 class Factory {
   final String factoryId;
   final String factoryName;
-  final String userId;
   Factory({
     this.factoryId = "",
     this.factoryName = "",
-    this.userId = "",
   });
 
   Factory copyWith({
@@ -28,7 +26,6 @@ class Factory {
     return Factory(
       factoryId: factoryId ?? this.factoryId,
       factoryName: factoryName ?? this.factoryName,
-      userId: userId ?? this.userId,
     );
   }
 
@@ -36,7 +33,6 @@ class Factory {
     return {
       'factoryId': factoryId,
       'factoryName': factoryName,
-      'userId': userId,
     };
   }
 
@@ -44,7 +40,6 @@ class Factory {
     return Factory(
       factoryId: map['_id'],
       factoryName: map['factoryName'],
-      userId: map['userId'],
     );
   }
 
@@ -53,18 +48,15 @@ class Factory {
   factory Factory.fromJson(String source) => Factory.fromMap(json.decode(source));
 
   @override
-  String toString() => 'FactoryModel(factoryId: $factoryId, factoryName: $factoryName, userId: $userId)';
+  String toString() => 'FactoryModel(factoryId: $factoryId, factoryName: $factoryName)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Factory &&
-        other.factoryId == factoryId &&
-        other.factoryName == factoryName &&
-        other.userId == userId;
+    return other is Factory && other.factoryId == factoryId && other.factoryName == factoryName;
   }
 
   @override
-  int get hashCode => factoryId.hashCode ^ factoryName.hashCode ^ userId.hashCode;
+  int get hashCode => factoryId.hashCode ^ factoryName.hashCode;
 }

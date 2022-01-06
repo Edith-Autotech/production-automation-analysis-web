@@ -1,3 +1,5 @@
+import '/controllers/reason_controller.dart';
+
 import '/controllers/part_controller.dart';
 import '/controllers/settings_menu_controller.dart';
 
@@ -27,3 +29,5 @@ UserController userController = UserController.instance;
 CountController countController = CountController.instance;
 
 PartController partController = PartController.instance;
+
+ReasonController reasonController = ReasonController.instance;

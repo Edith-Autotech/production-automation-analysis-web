@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:production_automation_web/helper/user_roles_enum.dart';
+
 // ? User Model
 
 // * ---------------------------RESPONSE--------------------------
@@ -16,7 +18,7 @@ class UserModel {
   final String email;
   final String? comapanyName; // ? will be implemented in v1.0.5+2
   final String factoryId;
-  final String role;
+  final userRolesEnum role;
 
   UserModel({
     // this.admin = true,
@@ -25,7 +27,7 @@ class UserModel {
     this.email = "",
     this.comapanyName,
     this.factoryId = '',
-    this.role = '',
+    this.role = userRolesEnum.siteWorker,
   });
 
   UserModel copyWith({
@@ -34,7 +36,7 @@ class UserModel {
     String? email,
     String? comapanyName,
     String? factoryId,
-    String? role,
+    userRolesEnum? role,
   }) {
     return UserModel(
       uid: uid ?? this.uid,
@@ -64,7 +66,7 @@ class UserModel {
       email: map['email'] ?? '',
       comapanyName: map['comapanyName'],
       factoryId: map['factoryId'] ?? '',
-      role: map['role'] ?? '',
+      role: returnEnumFromString(map['role']),
     );
   }
 

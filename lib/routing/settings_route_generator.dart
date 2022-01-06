@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '/pages/settings/widgets/settinngs_reasons/settings_reasons.dart';
-import '/pages/settings/widgets/settings_factory_details/settings_factory_details.dart';
-import '/pages/settings/widgets/settings_add_user/settings_add_user.dart';
-import '/pages/settings/widgets/settings_user/settings_user.dart';
+import '/views/settings/components/settinngs_reasons/settings_reasons.dart';
+import '/views/settings/components/settings_factory_details/settings_factory_details.dart';
+import '/views/settings/components/settings_add_user/settings_add_user.dart';
+import '/views/settings/components/settings_user/settings_user.dart';
 
 import '/routing/settings_routes.dart';
 

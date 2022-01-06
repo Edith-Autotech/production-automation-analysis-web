@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:production_automation_web/helper/user_roles_enum.dart';
 
 import '/constants/controllers.dart';
 import '/constants/style.dart';
@@ -62,7 +63,9 @@ AppBar topNavigationBar(
         SizedBox(width: defaultPadding),
         Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: returnColorFromEnum(
+              userController.activeUser.value.role,
+            ),
             borderRadius: BorderRadius.circular(30),
           ),
           child: Container(

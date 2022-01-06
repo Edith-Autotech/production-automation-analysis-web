@@ -10,7 +10,7 @@ class CountController extends GetxController {
 
   var isLoading = false.obs;
   var todaysCount = Count().obs;
-  var activeDate = "2021-07-23".obs;
+  var activeDate = "2022-01-04".obs;
 
   updateLoading(bool _loading) {
     isLoading.value = _loading;

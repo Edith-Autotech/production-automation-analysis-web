@@ -7,12 +7,13 @@ import 'config/graphql_config.dart';
 
 import 'constants/style.dart';
 
-import '/pages/authentication/auth_landing.dart';
+import '/views/authentication/auth_landing.dart';
 
 import 'controllers/menu_controller.dart';
 import 'controllers/navigation_controller.dart';
 import 'controllers/factory_controller.dart';
 import 'controllers/machine_controller.dart';
+import 'controllers/reason_controller.dart';
 import 'controllers/settings_menu_controller.dart';
 import 'controllers/user_controller.dart';
 import 'controllers/count_controller.dart';
@@ -23,6 +24,7 @@ void main() {
   Get.put(FactoryController());
   Get.put(MachineController());
   Get.put(PartController());
+  Get.put(ReasonController());
   Get.put(CountController());
   Get.put(MenuController());
   Get.put(SettingsMenuController());

@@ -1,17 +1,22 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:production_automation_web/config/graphql_config.dart';
-import 'package:production_automation_web/config/graphql_schema.dart';
-import 'package:production_automation_web/models/factory.dart';
+
+import '/config/graphql_config.dart';
+import '/config/graphql_schema.dart';
+import '/models/factory.dart';
 
 class FactoryService {
   static final GraphQLConfiguration _config = GraphQLConfiguration();
 
   static final Schema _schema = GraphQLSchema();
 
-  static Future<Factory?> factory(String token) async {
+  static Future<Factory?> factory(String token, String factoryId) async {
     try {
       final GraphQLClient _client = _config.authClientToQuery(token);
-      final QueryResult result = await _client.query(QueryOptions(document: gql(_schema.factory())));
+      final QueryResult result = await _client.query(
+        QueryOptions(
+          document: gql(_schema.factory(factoryId)),
+        ),
+      );
       // // print(result.data!['factories']);
       return Factory.fromMap(result.data!['factory']);
     } catch (error) {

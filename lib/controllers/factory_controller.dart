@@ -8,33 +8,40 @@ class FactoryController extends GetxController {
   static FactoryController instance = Get.find();
 
   var isLoading = false.obs;
-  // var activeFactory = Factory().obs;
+  var activeFactory = Factory().obs;
 
-  updateLoading(bool loading) {
+  _updateLoading(bool loading) {
     isLoading.value = loading;
   }
 
-  // Future getFactory() async {
-  //   updateLoading(true);
-  //   try {
-  //     if (userController.authToken.value.isNotEmpty) {
-  //       var _factory = await FactoryService.factory(userController.authToken.value);
-  //       // print(userController.authToken.value);
-  //       if (_factory != null) {
-  //         // activeFactory.value = _factory;
-  //       }
-  //     }
-  //   } catch (error) {
-  //     // print(error);
-  //     // Fluttertoast.showToast(msg: error.toString());
-  //   } finally {
-  //     updateLoading(false);
-  //   }
-  // }
+  _updateActiveFactory(Factory? _factory) {
+    if (_factory != null) {
+      activeFactory.value = _factory;
+    }
+  }
+
+  Future getFactory() async {
+    _updateLoading(true);
+    try {
+      if (userController.authToken.value.isNotEmpty) {
+        var _factory = await FactoryService.factory(
+          userController.authToken.value,
+          userController.activeUser.value.factoryId,
+        );
+        // print(userController.authToken.value);
+        _updateActiveFactory(_factory);
+      }
+    } catch (error) {
+      // print(error);
+      // Fluttertoast.showToast(msg: error.toString());
+    } finally {
+      _updateLoading(false);
+    }
+  }
 
   updateFactory(Factory factory) async {
-    updateLoading(true);
+    _updateLoading(true);
     await FactoryService.updateFactory(userController.authToken.value, factory);
-    updateLoading(false);
+    _updateLoading(false);
   }
 }

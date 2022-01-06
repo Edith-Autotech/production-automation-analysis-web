@@ -1,11 +1,20 @@
 // ? creating opertion strings based on graphql schema
 
-import '/models/state_enum.dart';
+import '../helper/state_enum.dart';
 
 abstract class Schema {
   String login(String email, String password);
   String user();
-  String factory();
+  String createNewUser(
+    String name,
+    String email,
+    String password,
+    String userRoleString,
+    String factoryId,
+  );
+  String allFactoryUsers(String factoryId);
+  String updateUser(String name, String role);
+  String factory(String factoryId);
   String machines(String factoryId);
   String machine(String machineId);
   String part(String partNumber);
@@ -86,12 +95,11 @@ class GraphQLSchema extends Schema {
   }
 
   @override
-  String factory() {
+  String factory(String factoryId) {
     return ''' 
     query Factory {
-      factory {
+      factory(factoryId: "$factoryId") {
         _id
-        userId
         factoryName
       }
     }
@@ -332,6 +340,60 @@ class GraphQLSchema extends Schema {
         state
         previousTimeStroke
       }
+    }
+    ''';
+  }
+
+  @override
+  String allFactoryUsers(String factoryId) {
+    return ''' 
+    query AllUsers {
+      allUsers(factoryId: "$factoryId") {
+        _id
+        email
+        name
+        factoryId
+        role
+      }
+    }
+    ''';
+  }
+
+  @override
+  String updateUser(String name, String role) {
+    return ''' 
+    mutation UpdateUser {
+      updateUser(userInputData: {
+        name: "$name"
+        role: "$role"
+      }) {
+        _id
+        email
+        name
+        factoryId
+        role
+      }
+    }
+    ''';
+  }
+
+  @override
+  String createNewUser(
+    String name,
+    String email,
+    String password,
+    String userRoleString,
+    String factoryId,
+  ) {
+    return ''' 
+    mutation CreateUser {
+      createUser(userInputData: { 
+        email: "$email", 
+        name: "$name", 
+        password: "$password",
+        factoryId: "$factoryId",
+        role: "$userRoleString"
+      })
     }
     ''';
   }

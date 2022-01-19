@@ -19,7 +19,7 @@ class PartsList extends StatelessWidget {
             offset: const Offset(0, 6),
             blurRadius: 12,
             color: lightGrey.withOpacity(.2),
-          ),
+        ),
         ],
       ),
       child: Obx(

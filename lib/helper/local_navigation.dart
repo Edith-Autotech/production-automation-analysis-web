@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '/constants/controllers.dart';
-import '/routing/route_generator.dart';
-import '/routing/routes.dart';
+import '/routes/route_generator.dart';
+import '/routes/routes.dart';
 
 Navigator localNavigator() => Navigator(
       key: navigationController.navKey,

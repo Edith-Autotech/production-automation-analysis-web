@@ -5,7 +5,7 @@ import '/constants/controllers.dart';
 import '/constants/style.dart';
 
 import '/helper/responsive.dart';
-import '/routing/settings_routes.dart';
+import '/routes/settings_routes.dart';
 
 import 'widgets/settings_side_menu_item.dart';
 

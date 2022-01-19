@@ -5,7 +5,7 @@ import '/views/settings/components/settings_factory_details/settings_factory_det
 import '/views/settings/components/settings_add_user/settings_add_user.dart';
 import '/views/settings/components/settings_user/settings_user.dart';
 
-import '/routing/settings_routes.dart';
+import '/routes/settings_routes.dart';
 
 Route<dynamic> generateSettingsRoute(RouteSettings settings) {
   switch (settings.name) {

@@ -225,7 +225,7 @@
     },
     {
       "name": "google_fonts",
-      "rootUri": "file:///D:/Development/flutter/.pub-cache/hosted/pub.dartlang.org/google_fonts-2.1.0",
+      "rootUri": "file:///D:/Development/flutter/.pub-cache/hosted/pub.dartlang.org/google_fonts-2.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -338,12 +338,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "nested",
-      "rootUri": "file:///D:/Development/flutter/.pub-cache/hosted/pub.dartlang.org/nested-1.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "nm",
       "rootUri": "file:///D:/Development/flutter/.pub-cache/hosted/pub.dartlang.org/nm-0.4.2",
       "packageUri": "lib/",
@@ -438,12 +432,6 @@
       "rootUri": "file:///D:/Development/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.4",
       "packageUri": "lib/",
       "languageVersion": "2.14"
-    },
-    {
-      "name": "provider",
-      "rootUri": "file:///D:/Development/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "rxdart",
@@ -542,7 +530,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-01-04T14:11:57.542117Z",
+  "generated": "2022-01-06T10:21:23.366296Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }

@@ -8,7 +8,7 @@ import '../../../../helper/state_enum.dart';
 
 import '/widgets/custom_text.dart';
 
-import '/routing/routes.dart';
+import '/routes/routes.dart';
 
 class MachineGridTile extends StatelessWidget {
   final Machine machine;

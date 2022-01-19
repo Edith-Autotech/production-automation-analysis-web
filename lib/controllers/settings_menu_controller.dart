@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/routing/settings_routes.dart';
+import '/routes/settings_routes.dart';
 
 import '/constants/style.dart';
 

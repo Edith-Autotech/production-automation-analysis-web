@@ -6,7 +6,8 @@ import '/views/overview/overview.dart';
 import '/views/parts/parts.dart';
 import '/views/profile/profile.dart';
 import '/views/settings/settings.dart';
-import '/routing/routes.dart';
+
+import '/routes/routes.dart';
 
 Route<dynamic> generateRoutes(RouteSettings settings) {
   switch (settings.name) {

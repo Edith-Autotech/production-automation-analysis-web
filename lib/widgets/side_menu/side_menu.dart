@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '/constants/controllers.dart';
 import '/constants/style.dart';
 import '/helper/responsive.dart';
-import '/routing/routes.dart';
+import '/routes/routes.dart';
 import '/widgets/custom_text.dart';
 import '/widgets/side_menu/side_menu_item.dart';
 

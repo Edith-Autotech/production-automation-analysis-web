@@ -7,27 +7,27 @@ import '/models/count.dart';
 import '/models/hourlly_count.dart';
 
 BarChartGroupData makeGroupData(
-  int x,
-  HourlyCount y, {
+  int index,
+  HourlyCount hourlyCount, {
   Color barColor = Colors.white,
   double width = 22,
 }) {
   return BarChartGroupData(
-    x: x,
+    x: index,
     barsSpace: 2.5,
     barRods: [
       BarChartRodData(
-        y: y.productionCount.toDouble(),
+        y: hourlyCount.productionCount.toDouble(),
         colors: [production],
         width: width,
       ),
       BarChartRodData(
-        y: y.idleCount.toDouble(),
+        y: hourlyCount.idleCount.toDouble(),
         colors: [idle],
         width: width,
       ),
       BarChartRodData(
-        y: y.standbyCount.toDouble(),
+        y: hourlyCount.standbyCount.toDouble(),
         colors: [standby],
         width: width,
       ),

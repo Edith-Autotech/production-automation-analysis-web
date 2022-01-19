@@ -2,6 +2,13 @@
 
 web app for PAA
 
+up-next
+
+Profile section
+changing user role
+connect submit buttons for factory update and add new user section
+text on overview screen
+
 # v1.0.1+3
 
 - settings navigation

@@ -2,21 +2,19 @@
 // Generated file. Do not edit.
 //
 
-// ignore: unused_import
-import 'dart:ui';
+// ignore_for_file: directives_ordering
+// ignore_for_file: lines_longer_than_80_chars
 
-import 'package:cloud_firestore_web/cloud_firestore_web.dart';
-import 'package:firebase_auth_web/firebase_auth_web.dart';
-import 'package:firebase_core_web/firebase_core_web.dart';
-import 'package:google_sign_in_web/google_sign_in_web.dart';
+import 'package:connectivity_plus_web/connectivity_plus_web.dart';
+import 'package:flutter_secure_storage_web/flutter_secure_storage_web.dart';
+import 'package:fluttertoast/fluttertoast_web.dart';
 
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 // ignore: public_member_api_docs
-void registerPlugins(PluginRegistry registry) {
-  FirebaseFirestoreWeb.registerWith(registry.registrarFor(FirebaseFirestoreWeb));
-  FirebaseAuthWeb.registerWith(registry.registrarFor(FirebaseAuthWeb));
-  FirebaseCoreWeb.registerWith(registry.registrarFor(FirebaseCoreWeb));
-  GoogleSignInPlugin.registerWith(registry.registrarFor(GoogleSignInPlugin));
-  registry.registerMessageHandler();
+void registerPlugins(Registrar registrar) {
+  ConnectivityPlusPlugin.registerWith(registrar);
+  FlutterSecureStorageWeb.registerWith(registrar);
+  FluttertoastWebPlugin.registerWith(registrar);
+  registrar.registerMessageHandler();
 }

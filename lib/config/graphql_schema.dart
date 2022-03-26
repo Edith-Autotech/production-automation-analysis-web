@@ -29,7 +29,6 @@ abstract class Schema {
     required String machineId,
     required String currentPart1,
     required machineStateEnum state,
-    required String previousTimeStroke,
     required int reasonCode,
     required int currentOperation1,
     String? currentPart2,
@@ -80,6 +79,7 @@ class GraphQLSchema extends Schema {
           standbyCount
           idleCount
         }
+        previousTimeStroke
       }
     }
     ''';
@@ -133,7 +133,6 @@ class GraphQLSchema extends Schema {
         currentOperation_2
         reasonCode
         state
-        previousTimeStroke
       }
     }
 ''';
@@ -194,7 +193,6 @@ class GraphQLSchema extends Schema {
     required String machineName,
     required String currentPart1,
     required machineStateEnum state,
-    required String previousTimeStroke,
     required int reasonCode,
     required int currentOperation1,
     String? currentPart2,
@@ -216,7 +214,6 @@ class GraphQLSchema extends Schema {
         currentOperation_2: ${nullVariable(currentOperation2)}
         reasonCode: $reasonCode
         state: "${returnStringFromEnum(state)}"
-        previousTimeStroke: "$previousTimeStroke"
         parallelState: $parallelState
       }) {
         _id

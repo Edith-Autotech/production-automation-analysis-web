@@ -43,7 +43,6 @@ class Machine {
   final int currentOperation_2;
   final int reasonCode;
   final machineStateEnum state;
-  final String previousTimeStroke;
   Machine({
     this.id = '',
     this.factoryId = '',
@@ -55,7 +54,6 @@ class Machine {
     this.currentOperation_2 = 0,
     this.reasonCode = 0,
     this.state = machineStateEnum.standby,
-    this.previousTimeStroke = '',
   });
 
   Machine copyWith({
@@ -69,7 +67,6 @@ class Machine {
     int? currentOperation_2,
     int? reasonCode,
     machineStateEnum? state,
-    String? previousTimeStroke,
   }) {
     return Machine(
       id: id ?? this.id,
@@ -82,7 +79,6 @@ class Machine {
       currentOperation_2: currentOperation_2 ?? this.currentOperation_2,
       reasonCode: reasonCode ?? this.reasonCode,
       state: state ?? this.state,
-      previousTimeStroke: previousTimeStroke ?? this.previousTimeStroke,
     );
   }
 
@@ -98,7 +94,6 @@ class Machine {
       'currentOperation_2': currentOperation_2,
       'reasonCode': reasonCode,
       'state': returnStringFromEnum(state),
-      'previousTimeStroke': previousTimeStroke,
     };
   }
 
@@ -114,7 +109,6 @@ class Machine {
       currentOperation_2: map['currentOperation_2']?.toInt() ?? 0,
       reasonCode: map['reasonCode']?.toInt() ?? 0,
       state: returnEnumFromString(map['state']),
-      previousTimeStroke: map['previousTimeStroke'] ?? '',
     );
   }
 
@@ -124,7 +118,7 @@ class Machine {
 
   @override
   String toString() {
-    return 'Machine(id: $id, factoryId: $factoryId, machineName: $machineName, parallelState: $parallelState, currentPart_1: $currentPart_1, currentPart_2: $currentPart_2, currentOperation_1: $currentOperation_1, currentOperation_2: $currentOperation_2, reasonCode: $reasonCode, state: $state, previousTimeStroke: $previousTimeStroke)';
+    return 'Machine(id: $id, factoryId: $factoryId, machineName: $machineName, parallelState: $parallelState, currentPart_1: $currentPart_1, currentPart_2: $currentPart_2, currentOperation_1: $currentOperation_1, currentOperation_2: $currentOperation_2, reasonCode: $reasonCode, state: $state)';
   }
 
   @override
@@ -141,8 +135,7 @@ class Machine {
         other.currentOperation_1 == currentOperation_1 &&
         other.currentOperation_2 == currentOperation_2 &&
         other.reasonCode == reasonCode &&
-        other.state == state &&
-        other.previousTimeStroke == previousTimeStroke;
+        other.state == state;
   }
 
   @override
@@ -156,7 +149,6 @@ class Machine {
         currentOperation_1.hashCode ^
         currentOperation_2.hashCode ^
         reasonCode.hashCode ^
-        state.hashCode ^
-        previousTimeStroke.hashCode;
+        state.hashCode;
   }
 }

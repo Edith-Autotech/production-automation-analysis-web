@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:production_automation_web/widgets/custom_text.dart';
 
 import '/constants/controllers.dart';
 
@@ -12,13 +13,23 @@ class CountChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => CustomPieChart(
-        centerText: countController.todaysCount.value.count.toString(),
-        chartData: returnCountChartsData(
-          countController.todaysCount.value,
-        )!,
-      ),
-    );
+    return Obx(() {
+      if (countController.todaysCount.value == null) {
+        return const Center(
+          child: CustomText(
+            text: "No Data for the selected date",
+            weight: FontWeight.w700,
+            size: 23,
+          ),
+        );
+      } else {
+        return CustomPieChart(
+          centerText: countController.todaysCount.value!.count.toString(),
+          chartData: returnCountChartsData(
+            countController.todaysCount.value!,
+          )!,
+        );
+      }
+    });
   }
 }

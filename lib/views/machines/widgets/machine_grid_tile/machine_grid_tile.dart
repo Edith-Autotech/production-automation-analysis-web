@@ -87,10 +87,10 @@ class MachineGridTile extends StatelessWidget {
                   text: returnStringFromEnum(machine.state),
                   color: light,
                 ),
-                CustomText(
-                  text: machine.previousTimeStroke,
-                  color: light,
-                ),
+                // CustomText(
+                //   text: machine.previousTimeStroke,
+                //   color: light,
+                // ),
               ],
             )
           ],

@@ -13,11 +13,11 @@ class UserController extends GetxController {
   var isLoading = false.obs;
   var authToken = "".obs;
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  //   // login("superuser@paa.com", "admin-01");
-  // }
+  @override
+  void onInit() {
+    super.onInit();
+    login("superuser@paa.com", "admin-01");
+  }
 
   _updateLoading(bool loading) {
     isLoading.value = loading;

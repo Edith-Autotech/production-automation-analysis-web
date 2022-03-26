@@ -9,8 +9,14 @@ class CountController extends GetxController {
   static CountController instance = Get.find();
 
   var isLoading = false.obs;
-  var todaysCount = Count().obs;
+  var todaysCount = Rxn<Count>();
   var activeDate = "2022-01-04".obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    updateActiveDate(DateTime.now().toString());
+  }
 
   toogleLoading() {
     isLoading.value = !isLoading.value;

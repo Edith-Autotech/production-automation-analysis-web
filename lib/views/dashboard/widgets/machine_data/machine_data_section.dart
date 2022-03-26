@@ -17,7 +17,7 @@ class MachineDataSection extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           _rowElement("Factory Id", machine.factoryId),
-          _rowElement("Last time stamp", machine.previousTimeStroke),
+          // _rowElement("Last time stamp", machine.previousTimeStroke),
           _rowElement("Parallel state", machine.parallelState.toString()),
           _rowElement("Part 1", machine.currentPart_1),
           _rowElement("Operation", machine.currentOperation_1.toString()),

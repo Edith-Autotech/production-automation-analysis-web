@@ -11,7 +11,21 @@ Count countFromMap(String str) => Count.fromMap(json.decode(str));
 String countToMap(Count data) => json.encode(data.toMap());
 
 class Count {
+  final String previousTimeStroke;
+  final String id;
+  final String machineId;
+  final DateTime? date;
+  final int count;
+  final int standbyCount;
+  final int productionCount;
+  final int idleCount;
+  final String productionTime;
+  final String idleTime;
+  final String standbyTime;
+  final List<HourlyCount>? hourlyCount;
+
   Count({
+    this.previousTimeStroke = "00:00:00",
     this.id = "",
     this.machineId = "",
     this.date,
@@ -25,18 +39,6 @@ class Count {
     this.hourlyCount,
   });
 
-  final String id;
-  final String machineId;
-  final DateTime? date;
-  final int count;
-  final int standbyCount;
-  final int productionCount;
-  final int idleCount;
-  final String productionTime;
-  final String idleTime;
-  final String standbyTime;
-  final List<HourlyCount>? hourlyCount;
-
   Count copyWith({
     String? id,
     String? machineId,
@@ -49,6 +51,7 @@ class Count {
     String? idleTime,
     String? standbyTime,
     List<HourlyCount>? hourlyCount,
+    String? previousTimeStroke,
   }) =>
       Count(
         id: id ?? this.id,
@@ -62,6 +65,7 @@ class Count {
         idleTime: idleTime ?? this.idleTime,
         standbyTime: standbyTime ?? this.standbyTime,
         hourlyCount: hourlyCount ?? this.hourlyCount,
+        previousTimeStroke: previousTimeStroke ?? this.previousTimeStroke,
       );
 
   factory Count.fromMap(Map<String, dynamic> json) {
@@ -78,6 +82,7 @@ class Count {
       idleTime: json["idleTime"],
       standbyTime: json["standbyTime"],
       hourlyCount: List<HourlyCount>.from(json["hourlyCount"].map((x) => HourlyCount.fromMap(x))),
+      previousTimeStroke: json["previousTimeStroke"],
     );
   }
 
@@ -93,5 +98,6 @@ class Count {
         "idleTime": idleTime,
         "standbyTime": standbyTime,
         "hourlyCount": List<dynamic>.from(hourlyCount!.map((x) => x.toMap())),
+        "previousTimeStroke": previousTimeStroke,
       };
 }

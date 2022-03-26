@@ -57,7 +57,6 @@ class MachineService {
                 machineId: machine.id,
                 currentPart1: machine.currentPart_1,
                 state: machine.state,
-                previousTimeStroke: machine.previousTimeStroke,
                 reasonCode: machine.reasonCode,
                 currentOperation1: machine.currentOperation_1,
                 currentPart2: machine.currentPart_2,

@@ -1,5 +1,7 @@
+
 import 'package:get/get.dart';
-import 'package:production_automation_web/helper/user_roles_enum.dart';
+
+import '/helper/user_roles_enum.dart';
 
 import '/services/user_service.dart';
 
@@ -13,11 +15,12 @@ class UserController extends GetxController {
   var isLoading = false.obs;
   var authToken = "".obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-    login("superuser@paa.com", "admin-01");
-  }
+
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   login("superuser@paa.com", "admin-01");
+  // }
 
   _updateLoading(bool loading) {
     isLoading.value = loading;

@@ -5,8 +5,8 @@ import '/helper/responsive.dart';
 import '/widgets/side_menu/side_menu.dart';
 import '/widgets/top_navigation_bar/top_nav.dart';
 
-import 'widgets/screens/large_screen.dart';
-import 'widgets/screens/small_scren.dart';
+import 'widgets/screens/layout_large_screen.dart';
+import 'widgets/screens/layout_small_scren.dart';
 
 class SiteLayout extends StatelessWidget {
   SiteLayout({Key? key}) : super(key: key);
@@ -21,9 +21,7 @@ class SiteLayout extends StatelessWidget {
         context,
         scaffoldKey,
       ),
-      drawer: const Drawer(
-        child: SideMenu(),
-      ),
+      drawer: const Drawer(child: SideMenu()),
       body: const ResponsiveWidget(
         largeScreen: LargeScreen(),
         smallScreen: SmallScreen(),

@@ -2,17 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/controllers.dart';
-
 import '/helper/responsive.dart';
-
-import 'widgets/machine_grid_view/medium_screen.dart';
-import 'widgets/machine_grid_view/small_screen.dart';
-import 'widgets/machine_grid_view/large_screen.dart';
-
 import '/widgets/custom_text.dart';
 import '/widgets/loading_spinner.dart';
-
 import '../base_page_layout.dart';
+import 'widgets/machine_grid_view/large_screen.dart';
+import 'widgets/machine_grid_view/medium_screen.dart';
+import 'widgets/machine_grid_view/small_screen.dart';
 
 class MachinesPage extends StatefulWidget {
   const MachinesPage({Key? key}) : super(key: key);
@@ -38,9 +34,9 @@ class _MachinesPageState extends State<MachinesPage> {
     return BasePageLayout(
       child: Obx(() {
         if (machineController.isLoading.value) {
-          return loadingSpinner();
+          return const LoadingSpinner();
         } else if (machineController.machineList.isEmpty) {
-          return const Center(child: CustomText(text: "No data"));
+          return const Center(child: CustomText("No data"));
         } else {
           return ListView(
             children: [

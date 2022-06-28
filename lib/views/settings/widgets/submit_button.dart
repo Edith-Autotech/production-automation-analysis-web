@@ -14,8 +14,8 @@ class SubmitButton extends StatelessWidget {
     return ElevatedButton(
       child: Container(
         margin: const EdgeInsets.all(10),
-        child: CustomText(
-          text: "Submit",
+        child: const CustomText(
+          "Submit",
           size: 19,
           weight: FontWeight.w600,
           color: light,

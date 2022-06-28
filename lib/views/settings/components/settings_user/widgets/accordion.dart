@@ -25,7 +25,7 @@ class _AccordionState extends State<Accordion> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(defaultPadding),
+      margin: const EdgeInsets.all(defaultPadding),
       child: Column(
         children: [
           ListTile(
@@ -38,7 +38,7 @@ class _AccordionState extends State<Accordion> {
                   width: double.infinity,
                   color: returnColorFromEnum(widget.user.role),
                 ),
-                CustomText(text: widget.user.name),
+                CustomText(widget.user.name),
               ],
             ),
             trailing: IconButton(
@@ -59,7 +59,7 @@ class _AccordionState extends State<Accordion> {
                   color: lightGrey.withOpacity(.4),
                 ),
               )),
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 vertical: defaultPadding,
                 horizontal: defaultPadding,
               ),
@@ -69,16 +69,16 @@ class _AccordionState extends State<Accordion> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-                      CustomText(text: "User Id"),
-                      CustomText(text: "Email"),
-                      CustomText(text: "Role"),
+                      CustomText("User Id"),
+                      CustomText("Email"),
+                      CustomText("Role"),
                     ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      CustomText(text: widget.user.uid),
-                      CustomText(text: widget.user.email),
+                      CustomText(widget.user.uid),
+                      CustomText(widget.user.email),
                       showUserRolesDropdown(widget.user),
                     ],
                   ),

@@ -37,23 +37,20 @@ class PartDetails extends StatelessWidget {
               height: 50,
             ),
           StockDetails(
-            stock: partController.selectedPart.value.stock!,
+            stock: partController.selectedPart.value!.stock!,
           ),
           if (!ResponsiveWidget.isSmallScreen(context))
             Expanded(
               child: Container(),
             ),
           _rowElement("Part id", part.partId),
-          SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding),
           _rowElement("Part number", part.partNumber),
-          SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding),
           _rowElement("Part name", part.partName),
-          SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding),
           _rowElement("Company name", part.companyName),
-          if (!ResponsiveWidget.isSmallScreen(context))
-            SizedBox(
-              height: defaultPadding,
-            ),
+          if (!ResponsiveWidget.isSmallScreen(context)) const SizedBox(height: defaultPadding),
         ],
       ),
     );
@@ -65,14 +62,14 @@ Widget _rowElement(String title, String value) {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       CustomText(
-        text: title,
+        title,
         color: light.withOpacity(.8),
         size: 16,
       ),
       Expanded(child: Container()),
       Flexible(
         child: CustomText(
-          text: value,
+          value,
           color: light.withOpacity(.5),
           size: 18,
           weight: FontWeight.w500,

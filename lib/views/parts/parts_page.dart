@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:production_automation_web/widgets/loading_spinner.dart';
 
-import '/constants/style.dart';
 import '/constants/controllers.dart';
-
+import '/constants/style.dart';
 import '/widgets/custom_text.dart';
-import '/widgets/loading_spinner.dart';
-
-import 'widgets/selected_part/selected_part.dart';
-import 'widgets/part_list/parts_list.dart';
-import 'widgets/header/header.dart';
-
 import '../base_page_layout.dart';
+import 'widgets/header/header.dart';
+import 'widgets/part_list/parts_list.dart';
 
 class PartsPage extends StatefulWidget {
   const PartsPage({Key? key}) : super(key: key);
@@ -37,14 +33,14 @@ class _PartsPageState extends State<PartsPage> {
     return BasePageLayout(
       child: Obx(() {
         if (partController.isLoading.value || factoryController.isLoading.value) {
-          return loadingSpinner();
+          return const LoadingSpinner();
         } else if (partController.partsList.isEmpty) {
-          return const Center(child: CustomText(text: "No Data"));
+          return const Center(child: CustomText("No Data"));
         } else {
           return ListView(
             children: [
-              const Header(),
-              SizedBox(height: defaultPadding),
+              const PartsHeader(),
+              const SizedBox(height: defaultPadding),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
@@ -52,10 +48,7 @@ class _PartsPageState extends State<PartsPage> {
                     flex: 2,
                     child: PartsList(),
                   ),
-                  Expanded(
-                    flex: 5,
-                    child: SelectedPartSection(),
-                  ),
+                  SizedBox(width: defaultPadding),
                 ],
               ),
             ],

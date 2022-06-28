@@ -2,7 +2,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 import '/constants/style.dart';
-
 import '/models/part.dart';
 
 List<PieChartSectionData>? returnStockChartsData(Part part) => part.stock!.map((e) {
@@ -12,7 +11,7 @@ List<PieChartSectionData>? returnStockChartsData(Part part) => part.stock!.map((
         radius: 25,
         title: "OP${e.operationNumber}",
         showTitle: true,
-        titleStyle: TextStyle(
+        titleStyle: const TextStyle(
           fontSize: 14,
           color: light,
         ),

@@ -39,8 +39,8 @@ class _SettingsAddUserState extends State<SettingsAddUser> {
     double _height = MediaQuery.of(context).size.height;
     return BaseSettingsPageLayout(
       child: Container(
-        margin: EdgeInsets.all(defaultPadding),
-        padding: EdgeInsets.all(defaultPadding),
+        margin: const EdgeInsets.all(defaultPadding),
+        padding: const EdgeInsets.all(defaultPadding),
         height: _height * 0.8,
         child: Column(
           children: [
@@ -54,7 +54,7 @@ class _SettingsAddUserState extends State<SettingsAddUser> {
                 onEditingComplete: () {},
               ),
             ),
-            SizedBox(height: defaultPadding),
+            const SizedBox(height: defaultPadding),
             rowElement(
               "Email",
               CustomTextField(
@@ -65,7 +65,7 @@ class _SettingsAddUserState extends State<SettingsAddUser> {
                 onEditingComplete: () {},
               ),
             ),
-            SizedBox(height: defaultPadding),
+            const SizedBox(height: defaultPadding),
             rowElement(
               "Password",
               CustomTextField(
@@ -77,7 +77,7 @@ class _SettingsAddUserState extends State<SettingsAddUser> {
                 onEditingComplete: () {},
               ),
             ),
-            SizedBox(height: defaultPadding),
+            const SizedBox(height: defaultPadding),
             rowElement(
               "Assign role",
               showUserRolesDropdown(
@@ -88,7 +88,7 @@ class _SettingsAddUserState extends State<SettingsAddUser> {
                 ),
               ),
             ),
-            SizedBox(height: defaultPadding),
+            const SizedBox(height: defaultPadding),
             if (showSubmitBtn) SubmitButton(onPressed: () {})
           ],
         ),

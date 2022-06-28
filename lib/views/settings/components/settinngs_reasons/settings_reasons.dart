@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/widgets/loading_spinner.dart';
 
 import '/constants/controllers.dart';
-
+import '/widgets/loading_spinner.dart';
 import '../base_settings_page_layout.dart';
 import 'widgets/reason_list_tile.dart';
 
@@ -29,7 +28,7 @@ class _SettingsReasonsState extends State<SettingsReasons> {
         height: _height * 0.8,
         child: Obx(() {
           if (reasonController.isLoading.value) {
-            return loadingSpinner();
+            return const LoadingSpinner();
           }
           return ListView(
             children: reasonController.reasonList

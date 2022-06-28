@@ -1,24 +1,41 @@
 import 'package:flutter/material.dart';
 
-Color light = const Color(0xFFF7F8FC);
-Color lightGrey = const Color(0xFFA4A6B3);
-Color dark = const Color(0xFF363740);
-Color active = const Color(0xFF3C19C0);
+const Color light = Color(0xFFF7F8FC);
+const Color lightGrey = Color.fromRGBO(153, 153, 153, 1);
 
-Color production = Colors.greenAccent;
-Color standby = Colors.redAccent;
-Color idle = Colors.yellowAccent;
+const Color grey = Color.fromRGBO(219, 219, 219, 1);
 
-Color op1Color = Colors.lightGreen;
-Color op2Color = Colors.blueAccent;
-Color op3Color = Colors.red;
-Color op4Color = Colors.purpleAccent;
-Color op5Color = Colors.teal;
-Color opDefaultColor = Colors.pinkAccent;
+const Color canvasColor = Color.fromRGBO(247, 247, 255, 1);
 
-Color superUserColor = Colors.indigo;
-Color adminColor = Colors.orangeAccent;
-Color siteWorkerColor = Colors.cyanAccent;
-Color clientColor = Colors.deepOrange;
+const Color dark = Color(0xFF363740);
+const Color active = Color.fromRGBO(1, 126, 255, 1);
 
-double defaultPadding = 20;
+const Color transparentColor = Colors.transparent;
+
+const Color productionColor = Color.fromRGBO(116, 221, 137, 1);
+
+const Color standbyColor = Color.fromRGBO(241, 67, 68, 1);
+
+Color idleColor = const Color.fromRGBO(255, 219, 90, 1);
+
+const Color op1Color = Colors.lightGreen;
+const Color op2Color = Colors.blueAccent;
+const Color op3Color = Colors.red;
+const Color op4Color = Colors.purpleAccent;
+const Color op5Color = Colors.teal;
+const Color opDefaultColor = Colors.pinkAccent;
+
+const Color superUserColor = Colors.indigo;
+const Color adminColor = Colors.orangeAccent;
+const Color siteWorkerColor = Colors.cyanAccent;
+const Color clientColor = Colors.deepOrange;
+
+const double defaultPadding = 10;
+
+const double appBarFontSize = 20;
+const double headingFontSize = 24;
+const double subHeadingFontSize = 16;
+const double buttonFontSize = 17;
+
+const subHeadingFontWeight = FontWeight.w600;
+const headingFontWeight = FontWeight.w800;

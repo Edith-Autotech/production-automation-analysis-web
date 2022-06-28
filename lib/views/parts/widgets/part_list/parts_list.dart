@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:production_automation_web/constants/style.dart';
 
 import '/constants/controllers.dart';
-import '/constants/style.dart';
 import 'part_list_tile.dart';
 
 class PartsList extends StatelessWidget {
@@ -13,14 +13,8 @@ class PartsList extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.8,
       decoration: BoxDecoration(
+        color: canvasColor,
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            offset: const Offset(0, 6),
-            blurRadius: 12,
-            color: lightGrey.withOpacity(.2),
-        ),
-        ],
       ),
       child: Obx(
         () => ListView(

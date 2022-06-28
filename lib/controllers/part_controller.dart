@@ -7,10 +7,10 @@ import '/services/part_service.dart';
 class PartController extends GetxController {
   static PartController instance = Get.find();
 
-  var isLoading = false.obs;
-  var selectedPart = Part().obs;
-  var partsList = <Part>[].obs;
-  var searchPartNumberString = "".obs;
+  RxBool isLoading = false.obs;
+  Rxn<Part> selectedPart = Rxn<Part>();
+  RxList<Part> partsList = RxList<Part>();
+  RxString searchPartNumberString = "".obs;
 
   updateLoading(bool _isLoading) {
     isLoading.value = _isLoading;

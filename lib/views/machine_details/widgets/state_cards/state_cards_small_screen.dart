@@ -8,6 +8,7 @@ import '/helper/state_enum.dart';
 import 'state_count_card_small.dart';
 
 import '/widgets/custom_text.dart';
+
 class StateCardsSmallScreen extends StatelessWidget {
   const StateCardsSmallScreen({Key? key}) : super(key: key);
 
@@ -18,7 +19,7 @@ class StateCardsSmallScreen extends StatelessWidget {
       if (countController.todaysCount.value == null) {
         return const Center(
           child: CustomText(
-            text: "No Data for the selected date",
+            "No Data for the selected date",
             weight: FontWeight.w700,
             size: 23,
           ),
@@ -30,17 +31,17 @@ class StateCardsSmallScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               StateCountCardSmall(
-                machineState: machineStateEnum.production,
+                machineState: MachineStateEnum.production,
                 stateCount: countController.todaysCount.value!.productionCount,
               ),
               SizedBox(width: _width / 64),
               StateCountCardSmall(
-                machineState: machineStateEnum.idle,
+                machineState: MachineStateEnum.idle,
                 stateCount: countController.todaysCount.value!.idleCount,
               ),
               SizedBox(width: _width / 64),
               StateCountCardSmall(
-                machineState: machineStateEnum.standby,
+                machineState: MachineStateEnum.standby,
                 stateCount: countController.todaysCount.value!.standbyCount,
               ),
             ],

@@ -25,17 +25,17 @@ class MenuController extends GetxController {
   Widget retrunIconFor(String itemName) {
     switch (itemName) {
       case overViewPageDisplayName:
-        return _customIcon(Icons.trending_up, itemName);
+        return _customIcon(Icons.pages, itemName);
       case machinesPageDisplayName:
-        return _customIcon(Icons.developer_board, itemName);
+        return _customIcon(Icons.hub_outlined, itemName);
       case partsPageDisplayName:
-        return _customIcon(Icons.pie_chart_sharp, itemName);
+        return _customIcon(Icons.description, itemName);
       case profilePageDisplayName:
-        return _customIcon(Icons.people_alt_outlined, itemName);
+        return _customIcon(Icons.person, itemName);
       case settingsPageDisplayName:
         return _customIcon(Icons.settings_outlined, itemName);
       case authenticationPageDisplayName:
-        return _customIcon(Icons.exit_to_app, itemName);
+        return _customIcon(Icons.exit_to_app_outlined, itemName);
       default:
         return _customIcon(Icons.exit_to_app_outlined, itemName);
     }
@@ -45,13 +45,14 @@ class MenuController extends GetxController {
     if (isActive(itemName)) {
       return Icon(
         iconData,
-        color: dark,
-        size: 22,
+        color: active,
+        size: 25,
       );
     }
     return Icon(
       iconData,
-      color: isHovering(itemName) ? dark : light,
+      color: isHovering(itemName) ? active : light,
     );
   }
+
 }

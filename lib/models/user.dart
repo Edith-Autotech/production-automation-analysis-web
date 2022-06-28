@@ -18,7 +18,7 @@ class UserModel {
   final String email;
   final String? comapanyName; // ? will be implemented in v1.0.5+2
   final String factoryId;
-  final userRolesEnum role;
+  final UserRolesEnum role;
 
   UserModel({
     // this.admin = true,
@@ -27,7 +27,7 @@ class UserModel {
     this.email = "",
     this.comapanyName,
     this.factoryId = '',
-    this.role = userRolesEnum.siteWorker,
+    this.role = UserRolesEnum.siteWorker,
   });
 
   UserModel copyWith({
@@ -36,7 +36,7 @@ class UserModel {
     String? email,
     String? comapanyName,
     String? factoryId,
-    userRolesEnum? role,
+    UserRolesEnum? role,
   }) {
     return UserModel(
       uid: uid ?? this.uid,

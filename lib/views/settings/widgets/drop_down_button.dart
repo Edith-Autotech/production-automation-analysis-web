@@ -7,15 +7,15 @@ import '/models/user.dart';
 
 import '../../../widgets/custom_text.dart';
 
-showUserRolesDropdown(UserModel user) => DropdownButton<userRolesEnum>(
+showUserRolesDropdown(UserModel user) => DropdownButton<UserRolesEnum>(
       value: user.role,
       dropdownColor: light,
-      items: userRolesEnum.values
+      items: UserRolesEnum.values
           .map(
-            (userRole) => DropdownMenuItem<userRolesEnum>(
+            (userRole) => DropdownMenuItem<UserRolesEnum>(
               value: userRole,
               child: CustomText(
-                text: returnStringFromEnum(userRole),
+                returnStringFromEnum(userRole),
               ),
             ),
           )

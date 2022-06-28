@@ -13,7 +13,7 @@ class BaseSettingsPageLayout extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomText(
-          text: settingsMenuController.activeItem.value,
+          settingsMenuController.activeItem.value,
           size: 22,
           weight: FontWeight.w600,
         ),

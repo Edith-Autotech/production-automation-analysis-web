@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-
-import '/constants/style.dart';
 import '/constants/controllers.dart';
+import '/constants/style.dart';
 
-class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+class PartsHeader extends StatelessWidget {
+  const PartsHeader({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class Header extends StatelessWidget {
         onChanged: (value) {
           partController.updateSearchString(value);
         },
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: 'Search by part number',
           labelStyle: TextStyle(color: active),
           enabledBorder: UnderlineInputBorder(

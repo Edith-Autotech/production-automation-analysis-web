@@ -30,14 +30,14 @@ class StockDetailsBox extends StatelessWidget {
         children: [
           Flexible(
             child: CustomText(
-              text: operationString,
+              operationString,
               color: light.withOpacity(0.7),
               weight: FontWeight.w500,
             ),
           ),
           Flexible(
             child: CustomText(
-              text: count.toString(),
+              count.toString(),
               size: 20,
               color: light.withOpacity(0.8),
               weight: FontWeight.w700,

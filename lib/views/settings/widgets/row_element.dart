@@ -11,7 +11,7 @@ Widget rowElement(
     children: [
       Expanded(
         child: CustomText(
-          text: label,
+          label,
           size: 21,
           weight: FontWeight.normal,
         ),

@@ -1,31 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/helper/responsive.dart';
-
 import '/constants/controllers.dart';
 import '/constants/style.dart';
-
+import '/helper/responsive.dart';
+import '/widgets/custom_text.dart';
+import '/widgets/loading_spinner.dart';
 import '../base_page_layout.dart';
-
-import 'widgets/machine_data/machine_data_section.dart';
 import 'widgets/charts/count_charts.dart';
-import 'widgets/header/header.dart';
 import 'widgets/charts/hourly_count_charts.dart';
+import 'widgets/header/header.dart';
+import 'widgets/machine_data/machine_data_section.dart';
 import 'widgets/state_cards/state_cards_large_screen.dart';
 import 'widgets/state_cards/state_cards_small_screen.dart';
 
-import '/widgets/loading_spinner.dart';
-import '/widgets/custom_text.dart';
-
-class DashboardPage extends StatefulWidget {
-  const DashboardPage({Key? key}) : super(key: key);
+class MachineDetailsPage extends StatefulWidget {
+  const MachineDetailsPage({Key? key}) : super(key: key);
 
   @override
-  State<DashboardPage> createState() => _DashboardPageState();
+  State<MachineDetailsPage> createState() => _MachineDetailsPageState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _MachineDetailsPageState extends State<MachineDetailsPage> {
   @override
   void initState() {
     super.initState();
@@ -37,12 +33,12 @@ class _DashboardPageState extends State<DashboardPage> {
     return BasePageLayout(
       child: Obx(() {
         if (countController.isLoading.value) {
-          return loadingSpinner();
+          return const LoadingSpinner();
         }
         return ListView(
           children: [
-            const Header(),
-            SizedBox(height: defaultPadding),
+            const MachineDetailsHeader(),
+            const SizedBox(height: defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -55,19 +51,20 @@ class _DashboardPageState extends State<DashboardPage> {
                         const StateCardsLargeScreen()
                       else
                         const StateCardsSmallScreen(),
+                      const SizedBox(height: defaultPadding),
                       if (ResponsiveWidget.isSmallScreen(context))
                         const SizedBox(
                           height: 10,
                         ),
-                      SizedBox(height: defaultPadding),
+                      const SizedBox(height: defaultPadding),
                       const CustomText(
-                        text: "Hourly Count",
+                        "Hourly Count",
                         weight: FontWeight.bold,
                         size: 20,
                       ),
-                      SizedBox(height: defaultPadding),
+                      const SizedBox(height: defaultPadding),
                       const HourlyCountCharts(),
-                      SizedBox(height: defaultPadding),
+                      const SizedBox(height: defaultPadding),
                       if (ResponsiveWidget.isSmallScreen(context))
                         const SizedBox(
                           height: 200,
@@ -75,32 +72,32 @@ class _DashboardPageState extends State<DashboardPage> {
                             child: MachineDataSection(),
                           ),
                         ),
-                      SizedBox(height: defaultPadding),
+                      const SizedBox(height: defaultPadding),
                       if (ResponsiveWidget.isSmallScreen(context))
                         const Center(
                           child: CountChart(),
                         ),
-                      SizedBox(height: defaultPadding),
+                      const SizedBox(height: defaultPadding),
                     ],
                   ),
                 ),
-                if (!ResponsiveWidget.isSmallScreen(context)) SizedBox(width: defaultPadding),
-                if (!ResponsiveWidget.isSmallScreen(context))
-                  Expanded(
-                    flex: 2,
-                    child: Column(
-                      children: [
-                        const CountChart(),
-                        SizedBox(height: defaultPadding),
-                        const SizedBox(
-                          height: 200,
-                          child: Center(
-                            child: MachineDataSection(),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
+                // if (!ResponsiveWidget.isSmallScreen(context)) const SizedBox(width: defaultPadding),
+                // if (!ResponsiveWidget.isSmallScreen(context))
+                //   Expanded(
+                //     flex: 2,
+                //     child: Column(
+                //       children: const [
+                //         CountChart(),
+                //         SizedBox(height: defaultPadding),
+                //         SizedBox(
+                //           height: 200,
+                //           child: Center(
+                //             child: MachineDataSection(),
+                //           ),
+                //         )
+                //       ],
+                //     ),
+                //   )
               ],
             ),
           ],

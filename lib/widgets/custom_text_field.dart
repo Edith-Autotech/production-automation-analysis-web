@@ -39,28 +39,28 @@ class CustomTextField extends StatelessWidget {
         primaryColor: dark,
       ),
       child: TextField(
-        style: TextStyle(color: dark),
+        style: const TextStyle(color: dark),
         controller: controller,
         focusNode: focusNode,
         decoration: InputDecoration(
-          labelStyle: TextStyle(
+          labelStyle: const TextStyle(
             fontSize: 17,
             color: dark,
           ),
           labelText: labelText,
           hintText: hintText,
-          hintStyle: TextStyle(color: lightGrey),
+          hintStyle: const TextStyle(color: lightGrey),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(defaultPadding),
-            borderSide: BorderSide(color: lightGrey),
+            borderSide: const BorderSide(color: lightGrey),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(defaultPadding),
-            borderSide: BorderSide(color: lightGrey),
+            borderSide: const BorderSide(color: lightGrey),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(defaultPadding),
-            borderSide: BorderSide(color: active),
+            borderSide: const BorderSide(color: active),
           ),
           focusColor: lightGrey,
           errorText: errorText,

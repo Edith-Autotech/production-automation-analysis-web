@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/constants/controllers.dart';
-import '/widgets/loading_spinner.dart';
-
 import '/constants/style.dart';
 import '/widgets/custom_text_field.dart';
-
-import '../base_settings_page_layout.dart';
+import '/widgets/loading_spinner.dart';
 import '../../widgets/row_element.dart';
 import '../../widgets/submit_button.dart';
+import '../base_settings_page_layout.dart';
 
 class SettingsFactoryDetails extends StatefulWidget {
   const SettingsFactoryDetails({Key? key}) : super(key: key);
@@ -38,13 +36,13 @@ class _SettingsFactoryDetailsState extends State<SettingsFactoryDetails> {
     double _height = MediaQuery.of(context).size.height;
     return BaseSettingsPageLayout(
       child: Container(
-        margin: EdgeInsets.all(defaultPadding),
-        padding: EdgeInsets.all(defaultPadding),
+        margin: const EdgeInsets.all(defaultPadding),
+        padding: const EdgeInsets.all(defaultPadding),
         height: _height * 0.8,
         child: Obx(
           () {
             if (factoryController.isLoading.value) {
-              return loadingSpinner();
+              return const LoadingSpinner();
             } else {
               return Column(
                 children: [
@@ -58,7 +56,7 @@ class _SettingsFactoryDetailsState extends State<SettingsFactoryDetails> {
                       onEditingComplete: () {},
                     ),
                   ),
-                  SizedBox(height: defaultPadding),
+                  const SizedBox(height: defaultPadding),
                   if (showSubmitBtn) SubmitButton(onPressed: () {})
                 ],
               );

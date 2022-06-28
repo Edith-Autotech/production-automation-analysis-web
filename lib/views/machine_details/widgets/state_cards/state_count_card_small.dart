@@ -5,7 +5,7 @@ import '../../../../helper/state_enum.dart';
 import '/widgets/custom_text.dart';
 
 class StateCountCardSmall extends StatelessWidget {
-  final machineStateEnum machineState;
+  final MachineStateEnum machineState;
   final int stateCount;
   const StateCountCardSmall({
     Key? key,
@@ -37,13 +37,13 @@ class StateCountCardSmall extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomText(
-                text: returnStringFromEnum(machineState),
+                returnStringFromEnum(machineState),
                 size: 24,
                 weight: FontWeight.w300,
                 color: light,
               ),
               CustomText(
-                text: stateCount.toString(),
+                stateCount.toString(),
                 size: 24,
                 weight: FontWeight.w300,
                 color: light,

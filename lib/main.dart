@@ -7,8 +7,6 @@ import 'config/graphql_config.dart';
 
 import 'constants/style.dart';
 
-import '/views/authentication/auth_landing.dart';
-
 import 'controllers/menu_controller.dart';
 import 'controllers/navigation_controller.dart';
 import 'controllers/factory_controller.dart';
@@ -18,8 +16,10 @@ import 'controllers/settings_menu_controller.dart';
 import 'controllers/user_controller.dart';
 import 'controllers/count_controller.dart';
 import 'controllers/part_controller.dart';
+import 'views/authentication/auth_landing.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   Get.put(UserController());
   Get.put(FactoryController());
   Get.put(MachineController());
@@ -46,7 +46,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: "Paa-Web",
         theme: ThemeData(
-          primaryColor: Colors.blueAccent,
+          primaryColor: active,
+          canvasColor: canvasColor,
+          backgroundColor: canvasColor,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           scaffoldBackgroundColor: light,
           textTheme: GoogleFonts.mulishTextTheme(
@@ -56,9 +58,10 @@ class MyApp extends StatelessWidget {
             builders: {
               TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
               TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
+              TargetPlatform.macOS: FadeUpwardsPageTransitionsBuilder(),
+              TargetPlatform.windows: FadeUpwardsPageTransitionsBuilder(),
             },
           ),
-          primarySwatch: Colors.blue,
         ),
         home: const AuthLanding(),
       ),

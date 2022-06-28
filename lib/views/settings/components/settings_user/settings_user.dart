@@ -29,7 +29,7 @@ class _SettingsUserState extends State<SettingsUser> {
       child: Obx(
         () {
           if (userController.allFactoryUsers.isEmpty) {
-            return const Center(child: CustomText(text: "Loading..."));
+            return const Center(child: CustomText("Loading..."));
           }
           return ListView(
             shrinkWrap: true,

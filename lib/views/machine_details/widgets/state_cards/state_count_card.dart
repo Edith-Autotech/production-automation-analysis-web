@@ -4,14 +4,18 @@ import '/constants/style.dart';
 import '../../../../helper/state_enum.dart';
 
 class StateCountCard extends StatelessWidget {
-  final machineStateEnum machineState;
+  final MachineStateEnum machineState;
   final int stateCount;
+  final Color color;
+  final bool activeState;
   final String time;
   const StateCountCard({
     Key? key,
+    required this.color,
     required this.machineState,
     required this.stateCount,
     required this.time,
+    required this.activeState,
   }) : super(key: key);
 
   @override
@@ -24,11 +28,11 @@ class StateCountCard extends StatelessWidget {
           alignment: Alignment.center,
           margin: const EdgeInsets.all(2),
           decoration: BoxDecoration(
-            color: lightGrey.withOpacity(.3),
-            boxShadow: [
+            color: activeState ? color : light,
+            boxShadow: const [
               BoxShadow(
-                offset: const Offset(0, 6),
-                color: lightGrey.withOpacity(.1),
+                offset: Offset(0, 6),
+                color: grey,
                 blurRadius: 12,
               )
             ],
@@ -39,10 +43,8 @@ class StateCountCard extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                      child: Container(
-                    height: 5,
-                    color: returnColorFromEnum(machineState),
-                  )),
+                    child: Container(height: 5, color: returnColorFromEnum(machineState)),
+                  ),
                 ],
               ),
               Expanded(child: Container()),
@@ -52,14 +54,15 @@ class StateCountCard extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: "${returnStringFromEnum(machineState)}\n\n",
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: dark.withOpacity(.6),
+                      style: const TextStyle(
+                        fontSize: 19,
+                        fontWeight: FontWeight.w700,
+                        color: dark,
                       ),
                     ),
                     TextSpan(
                       text: "$stateCount\n\n",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 22,
                         color: dark,
                         fontWeight: FontWeight.bold,
@@ -67,9 +70,9 @@ class StateCountCard extends StatelessWidget {
                     ),
                     TextSpan(
                       text: time,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 21,
-                        color: dark.withOpacity(.4),
+                        color: dark,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

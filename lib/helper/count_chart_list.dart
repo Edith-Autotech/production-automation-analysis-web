@@ -7,21 +7,21 @@ import '/models/count.dart';
 List<PieChartSectionData>? returnCountChartsData(Count count) {
   return [
     PieChartSectionData(
-      color: standby,
+      color: standbyColor,
       title: "Standby",
       value: count.standbyCount.toDouble(),
       showTitle: false,
       radius: 25,
     ),
     PieChartSectionData(
-      color: idle,
+      color: idleColor,
       title: "Idle",
       value: count.idleCount.toDouble(),
       showTitle: false,
       radius: 25,
     ),
     PieChartSectionData(
-      color: production,
+      color: productionColor,
       title: "Production",
       value: count.productionCount.toDouble(),
       showTitle: false,

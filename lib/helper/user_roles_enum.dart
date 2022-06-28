@@ -1,52 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:production_automation_web/constants/style.dart';
 
-enum userRolesEnum {
+enum UserRolesEnum {
   superUser,
   admin,
   siteWorker,
   client,
 }
 
-userRolesEnum returnEnumFromString(String userRoleString) {
+UserRolesEnum returnEnumFromString(String userRoleString) {
   // print(userRoleString);
   // print(userRoleString.compareTo('super-user'));
   switch (userRoleString) {
     case 'super-user':
-      return userRolesEnum.superUser;
+      return UserRolesEnum.superUser;
     case 'admin':
-      return userRolesEnum.admin;
+      return UserRolesEnum.admin;
     case 'site-worker':
-      return userRolesEnum.siteWorker;
+      return UserRolesEnum.siteWorker;
     case 'client':
-      return userRolesEnum.client;
+      return UserRolesEnum.client;
     default:
-      return userRolesEnum.siteWorker;
+      return UserRolesEnum.siteWorker;
   }
 }
 
-String returnStringFromEnum(userRolesEnum roles) {
+String returnStringFromEnum(UserRolesEnum roles) {
   switch (roles) {
-    case userRolesEnum.superUser:
+    case UserRolesEnum.superUser:
       return 'super-user';
-    case userRolesEnum.admin:
+    case UserRolesEnum.admin:
       return 'admin';
-    case userRolesEnum.siteWorker:
+    case UserRolesEnum.siteWorker:
       return 'site-worker';
-    case userRolesEnum.client:
+    case UserRolesEnum.client:
       return 'client';
   }
 }
 
-Color returnColorFromEnum(userRolesEnum roles) {
+Color returnColorFromEnum(UserRolesEnum roles) {
   switch (roles) {
-    case userRolesEnum.superUser:
+    case UserRolesEnum.superUser:
       return superUserColor;
-    case userRolesEnum.admin:
+    case UserRolesEnum.admin:
       return adminColor;
-    case userRolesEnum.siteWorker:
+    case UserRolesEnum.siteWorker:
       return siteWorkerColor;
-    case userRolesEnum.client:
+    case UserRolesEnum.client:
       return clientColor;
   }
 }

@@ -2,6 +2,8 @@
 
 web app for PAA
 
+Use Peanut for github deployment
+
 up-next
 
 Profile section

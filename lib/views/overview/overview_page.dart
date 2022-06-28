@@ -9,7 +9,7 @@ class OverviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasePageLayout(
       child: ListView(
-        children: const [CustomText(text: "Overview page")],
+        children: const [CustomText("Overview page")],
       ),
     );
   }

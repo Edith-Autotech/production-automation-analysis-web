@@ -17,7 +17,7 @@ class CountChart extends StatelessWidget {
       if (countController.todaysCount.value == null) {
         return const Center(
           child: CustomText(
-            text: "No Data for the selected date",
+            "No Data for the selected date",
             weight: FontWeight.w700,
             size: 23,
           ),

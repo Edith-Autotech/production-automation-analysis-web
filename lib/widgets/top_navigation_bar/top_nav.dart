@@ -5,7 +5,6 @@ import 'package:production_automation_web/helper/user_roles_enum.dart';
 import '/constants/controllers.dart';
 import '/constants/style.dart';
 import '/helper/responsive.dart';
-
 import '../custom_text.dart';
 
 AppBar topNavigationBar(
@@ -20,7 +19,7 @@ AppBar topNavigationBar(
                 scaffoldKey.currentState!.openDrawer();
               }
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.menu,
               color: dark,
             ),
@@ -38,29 +37,29 @@ AppBar topNavigationBar(
           ),
     title: Row(
       children: [
-        Visibility(
+        const Visibility(
           child: CustomText(
-            text: "Paa Web",
+            "Paa Web",
             color: lightGrey,
             size: 20,
             weight: FontWeight.bold,
           ),
         ),
         Expanded(child: Container()),
-        SizedBox(width: defaultPadding),
+        const SizedBox(width: defaultPadding),
         Obx(
           () => CustomText(
-            text: userController.activeUser.value.name,
+            userController.activeUser.value.name,
             color: lightGrey,
           ),
         ),
-        SizedBox(width: defaultPadding),
+        const SizedBox(width: defaultPadding),
         Container(
           width: 1,
           height: 22,
           color: lightGrey,
         ),
-        SizedBox(width: defaultPadding),
+        const SizedBox(width: defaultPadding),
         Container(
           decoration: BoxDecoration(
             color: returnColorFromEnum(
@@ -71,7 +70,7 @@ AppBar topNavigationBar(
           child: Container(
             padding: const EdgeInsets.all(2),
             margin: const EdgeInsets.all(2),
-            child: CircleAvatar(
+            child: const CircleAvatar(
               backgroundColor: light,
               child: Icon(
                 Icons.person_outline,

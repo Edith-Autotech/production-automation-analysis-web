@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class CustomText extends StatelessWidget {
@@ -5,9 +6,11 @@ class CustomText extends StatelessWidget {
   final Color color;
   final double size;
   final FontWeight weight;
-  const CustomText({
+  final TextOverflow? overflow;
+  const CustomText(
+    this.text, {
     Key? key,
-    required this.text,
+    this.overflow,
     this.color = Colors.black,
     this.size = 16,
     this.weight = FontWeight.normal,
@@ -15,13 +18,15 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return AutoSizeText(
       text,
       maxLines: 1,
-      overflow: TextOverflow.ellipsis,
+      maxFontSize: size,
+      minFontSize: 10,
+      overflow: overflow ?? TextOverflow.ellipsis,
+      wrapWords: true,
       style: TextStyle(
         color: color,
-        fontSize: size,
         fontWeight: weight,
       ),
     );

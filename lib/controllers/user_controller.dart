@@ -1,20 +1,16 @@
-
 import 'package:get/get.dart';
 
 import '/helper/user_roles_enum.dart';
-
-import '/services/user_service.dart';
-
 import '/models/user.dart';
+import '/services/user_service.dart';
 
 class UserController extends GetxController {
   static UserController instance = Get.find();
   var activeUser = UserModel().obs;
-  var activeUserRole = userRolesEnum.superUser.obs;
+  var activeUserRole = UserRolesEnum.superUser.obs;
   var allFactoryUsers = <UserModel>[].obs;
   var isLoading = false.obs;
   var authToken = "".obs;
-
 
   // @override
   // void onInit() {
@@ -67,22 +63,22 @@ class UserController extends GetxController {
     // _updateLoading(false);
   }
 
-  void Function(userRolesEnum?)? onDropDownChange(UserModel user) {
+  void Function(UserRolesEnum?)? onDropDownChange(UserModel user) {
     // print(user.uid);
     switch (activeUser.value.role) {
-      case userRolesEnum.superUser:
+      case UserRolesEnum.superUser:
         return (value) {
           // print(value);
           // updateUser(user.copyWith(role: value));
         };
-      case userRolesEnum.admin:
+      case UserRolesEnum.admin:
         return (value) {
           // print(value);
           // updateUser(user.copyWith(role: value));
         };
-      case userRolesEnum.siteWorker:
+      case UserRolesEnum.siteWorker:
         return null;
-      case userRolesEnum.client:
+      case UserRolesEnum.client:
         return null;
     }
   }

@@ -5,7 +5,6 @@ import 'package:production_automation_web/constants/controllers.dart';
 import 'package:production_automation_web/widgets/custom_text_field.dart';
 
 import '/constants/style.dart';
-
 import '/widgets/custom_text.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -76,9 +75,9 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             Row(
-              children: [
+              children: const [
                 CustomText(
-                  text: "Welcome back to the admin panel",
+                  "Welcome back to the admin panel",
                   color: lightGrey,
                 ),
               ],
@@ -106,23 +105,23 @@ class _LoginScreenState extends State<LoginScreen> {
               onEditingComplete: onPasswordEditingComplete,
               obscureText: true,
             ),
-            SizedBox(height: defaultPadding),
+            const SizedBox(height: defaultPadding),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
                     Checkbox(value: true, onChanged: (value) {}),
-                    const CustomText(text: "Remember Me"),
+                    const CustomText("Remember Me"),
                   ],
                 ),
-                CustomText(
-                  text: "Forgot password",
+                const CustomText(
+                  "Forgot password",
                   color: active,
                 )
               ],
             ),
-            SizedBox(height: defaultPadding),
+            const SizedBox(height: defaultPadding),
             InkWell(
               onTap: onPasswordEditingComplete,
               child: Container(
@@ -134,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: double.maxFinite,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: const CustomText(
-                  text: "Login",
+                  "Login",
                   color: Colors.white,
                 ),
               ),
@@ -143,8 +142,8 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 15,
             ),
             RichText(
-                text: TextSpan(children: [
-              const TextSpan(text: "Do not have admin credentials? "),
+                text: const TextSpan(children: [
+              TextSpan(text: "Do not have admin credentials? "),
               TextSpan(
                 text: "Request credentials!",
                 style: TextStyle(color: active),

@@ -3,10 +3,8 @@ import 'package:get/get.dart';
 
 import '/constants/controllers.dart';
 import '/constants/style.dart';
-
 import '/helper/responsive.dart';
 import '/routes/settings_routes.dart';
-
 import 'widgets/settings_side_menu_item.dart';
 
 class SettingsMenu extends StatelessWidget {
@@ -16,9 +14,9 @@ class SettingsMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       height: _height * 0.8,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border(
           right: BorderSide(
             color: lightGrey,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:production_automation_web/routes/routes.dart';
 
 import '/constants/controllers.dart';
 import '/constants/style.dart';
@@ -11,22 +12,48 @@ class PartListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: CustomText(
-        text: part.partNumber.toString(),
-        color: dark,
-        size: 18,
-        weight: FontWeight.w400,
+    return InkWell(
+      onTap: () {
+
+      partController.changeSelectedPart(part);
+      navigationController.navigateTo(partDetailsRouteName);
+      }, 
+      child: Container(
+        margin: const EdgeInsets.all(defaultPadding),
+        padding: const EdgeInsets.symmetric(
+          horizontal: defaultPadding,
+          vertical: defaultPadding / 2,
+        ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(defaultPadding / 2),
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 6),
+              blurRadius: 12,
+              color: lightGrey.withOpacity(.2),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            CustomText(
+              "#${part.partNumber}",
+              color: dark,
+              size: 18,
+              weight: FontWeight.w400,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const Spacer(),
+            CustomText(
+              part.noOfOperations.toString(),
+              color: dark.withOpacity(.6),
+              size: 20,
+              weight: FontWeight.bold,
+            ),
+          ],
+        ),
       ),
-      trailing: CustomText(
-        text: part.noOfOperations.toString(),
-        color: dark.withOpacity(.6),
-        size: 20,
-        weight: FontWeight.bold,
-      ),
-      onTap: () => partController.changeSelectedPart(part),
-      selected: partController.selectedPart.value == part,
-      selectedColor: lightGrey,
     );
   }
 }

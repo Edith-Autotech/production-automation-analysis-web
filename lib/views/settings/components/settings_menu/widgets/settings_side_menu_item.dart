@@ -46,14 +46,14 @@ class SettingsSideMenuItem extends StatelessWidget {
               if (!settingsMenuController.isActive(itemName))
                 Flexible(
                   child: CustomText(
-                    text: itemName,
+                    itemName,
                     color: settingsMenuController.isHovering(itemName) ? dark : lightGrey,
                   ),
                 )
               else
                 Flexible(
                   child: CustomText(
-                    text: itemName,
+                    itemName,
                     size: 18,
                     color: dark,
                     weight: FontWeight.bold,

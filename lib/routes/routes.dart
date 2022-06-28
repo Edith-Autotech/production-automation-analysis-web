@@ -12,6 +12,9 @@ const dashboardPageRouteName = "/dashboard";
 const partsPageDisplayName = "Parts";
 const partsPageRouteName = "/parts";
 
+const partDetailsDisplayName = "Part Details";
+const partDetailsRouteName = "/parts-details";
+
 const profilePageDisplayName = "Profile";
 const profilePageRouteName = "/profile";
 

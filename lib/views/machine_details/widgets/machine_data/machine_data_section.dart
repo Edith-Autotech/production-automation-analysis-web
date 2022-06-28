@@ -24,7 +24,7 @@ class MachineDataSection extends StatelessWidget {
           if (machine.parallelState)
             _rowElement(
               "Part 2",
-              machine.currentPart_2,
+              machine.currentPart_2!,
             )
           else
             Container(),
@@ -44,8 +44,8 @@ class MachineDataSection extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CustomText(text: title),
-        CustomText(text: value),
+        CustomText(title),
+        CustomText(value),
       ],
     );
   }

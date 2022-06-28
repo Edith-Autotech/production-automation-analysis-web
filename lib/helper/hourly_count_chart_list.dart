@@ -2,7 +2,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 import '/constants/style.dart';
-
 import '/models/count.dart';
 import '/models/hourlly_count.dart';
 
@@ -18,17 +17,17 @@ BarChartGroupData makeGroupData(
     barRods: [
       BarChartRodData(
         y: hourlyCount.productionCount.toDouble(),
-        colors: [production],
+        colors: [productionColor],
         width: width,
       ),
       BarChartRodData(
         y: hourlyCount.idleCount.toDouble(),
-        colors: [idle],
+        colors: [idleColor],
         width: width,
       ),
       BarChartRodData(
         y: hourlyCount.standbyCount.toDouble(),
-        colors: [standby],
+        colors: [standbyColor],
         width: width,
       ),
     ],
@@ -49,7 +48,7 @@ BarChartData mainBarData(Count count) {
       leftTitles: SideTitles(showTitles: false),
       bottomTitles: SideTitles(
         showTitles: true,
-        getTextStyles: (context, value) => TextStyle(
+        getTextStyles: (context, value) => const TextStyle(
           color: dark,
           fontWeight: FontWeight.bold,
           fontSize: 15,

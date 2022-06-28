@@ -13,7 +13,7 @@ class ReasonListTile extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(5),
       child: ListTile(
-        title: CustomText(text: reason.reasonDescription),
+        title: CustomText(reason.reasonDescription),
         trailing: Container(
           height: 60,
           width: 60,
@@ -27,7 +27,7 @@ class ReasonListTile extends StatelessWidget {
           ),
           child: Center(
             child: CustomText(
-              text: reason.reasonCode.toString(),
+              reason.reasonCode.toString(),
             ),
           ),
         ),

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import '../helper/state_enum.dart';
+import '/helper/state_enum.dart';
+
 // ? Machine Model
 
 // * ---------------------------RESPONSE--------------------------
@@ -38,22 +39,22 @@ class Machine {
   final String machineName;
   final bool parallelState;
   final String currentPart_1;
-  final String currentPart_2;
+  final String? currentPart_2;
   final int currentOperation_1;
-  final int currentOperation_2;
+  final int? currentOperation_2;
   final int reasonCode;
-  final machineStateEnum state;
+  final MachineStateEnum state;
   Machine({
     this.id = '',
     this.factoryId = '',
     this.machineName = '',
     this.parallelState = false,
     this.currentPart_1 = '',
-    this.currentPart_2 = '',
+    this.currentPart_2,
     this.currentOperation_1 = 0,
-    this.currentOperation_2 = 0,
+    this.currentOperation_2,
     this.reasonCode = 0,
-    this.state = machineStateEnum.standby,
+    this.state = MachineStateEnum.standby,
   });
 
   Machine copyWith({
@@ -66,7 +67,8 @@ class Machine {
     int? currentOperation_1,
     int? currentOperation_2,
     int? reasonCode,
-    machineStateEnum? state,
+    MachineStateEnum? state,
+    String? previousTimeStroke,
   }) {
     return Machine(
       id: id ?? this.id,
@@ -98,16 +100,17 @@ class Machine {
   }
 
   factory Machine.fromMap(Map<String, dynamic> map) {
+    // logger.i('Machine.fromMap: $map');
     return Machine(
       id: map['_id'] ?? '',
       factoryId: map['factoryId'] ?? '',
       machineName: map['machineName'] ?? '',
       parallelState: map['parallelState'] ?? false,
       currentPart_1: map['currentPart_1'] ?? '',
-      currentPart_2: map['currentPart_2'] ?? '',
+      currentPart_2: map['currentPart_2'],
       currentOperation_1: map['currentOperation_1']?.toInt() ?? 0,
-      currentOperation_2: map['currentOperation_2']?.toInt() ?? 0,
-      reasonCode: map['reasonCode']?.toInt() ?? 0,
+      currentOperation_2: map['currentOperation_2']?.toInt(),
+      reasonCode: map['reasonCode']?.toInt(),
       state: returnEnumFromString(map['state']),
     );
   }

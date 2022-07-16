@@ -2,7 +2,6 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 
 import '/config/graphql_config.dart';
 import '/config/graphql_schema.dart';
-
 import '/models/count.dart';
 
 class CountService {
@@ -17,9 +16,15 @@ class CountService {
   ) async {
     try {
       final GraphQLClient _client = _config.authClientToQuery(token);
-      final QueryResult result = await _client.query(QueryOptions(document: gql(_schema.dailyCount(date, machineId))));
+      final QueryResult result = await _client.query(
+        QueryOptions(document: gql(_schema.dailyCount(date, machineId))),
+      );
       // print(result.data!['fetchDailyCount']);
-      return Count.fromMap(result.data!['fetchDailyCount']);
+      if (result.data == null) {
+        return null;
+      } else {
+        return Count.fromMap(result.data!['fetchDailyCount']);
+      }
     } catch (error) {
       rethrow;
     }

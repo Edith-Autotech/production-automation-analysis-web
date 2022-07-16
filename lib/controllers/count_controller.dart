@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
+import 'package:production_automation_web/helper/logger.dart';
 
 import '/constants/controllers.dart';
 import '/models/count.dart';
@@ -27,6 +29,7 @@ class CountController extends GetxController {
   }
 
   updateTodaysCount(Count? _count) {
+    logger.log(Level.verbose, _count.toString());
     todaysCount.value = _count;
   }
 

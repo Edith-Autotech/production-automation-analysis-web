@@ -6,7 +6,8 @@ const RESOURCES = {
   "version.json": "fa2d99cdc168113865b04ab49a4b9ce8",
 "index.html": "4813e10f19054eef94c0c473303cf286",
 "/": "4813e10f19054eef94c0c473303cf286",
-"main.dart.js": "d87367b724326905407cf92fe07c7ce0",
+"main.dart.js": "fe84b7aa4adfe7ed3a8d25cb0681f382",
+"flutter.js": "0816e65a103ba8ba51b174eeeeb2cb67",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
@@ -49,7 +50,11 @@ const RESOURCES = {
 "assets/assets/icons/logo.svg": "0679fa59b5eca161c6351623149af3f4",
 "assets/assets/icons/media_file.svg": "2ac15c968f8a8cea571a0f3e9f238a66",
 "assets/assets/icons/folder.svg": "40a82e74e930ac73aa6ccb85d8c5a29c",
-"assets/assets/icons/one_drive.svg": "aa908c0a29eb795606799385cdfc8592"
+"assets/assets/icons/one_drive.svg": "aa908c0a29eb795606799385cdfc8592",
+"canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
+"canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
+"canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
+"canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba"
 };
 
 // The application shell files that are downloaded before a service worker can

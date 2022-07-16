@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
 
 import '/constants/controllers.dart';
-import '/services/count_service.dart';
-
 import '/models/count.dart';
+import '/services/count_service.dart';
 
 class CountController extends GetxController {
   static CountController instance = Get.find();
@@ -28,9 +27,7 @@ class CountController extends GetxController {
   }
 
   updateTodaysCount(Count? _count) {
-    if (_count != null) {
-      todaysCount.value = _count;
-    }
+    todaysCount.value = _count;
   }
 
   fetchCount() async {

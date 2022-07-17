@@ -14,10 +14,9 @@ class PartListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-
-      partController.changeSelectedPart(part);
-      navigationController.navigateTo(partDetailsRouteName);
-      }, 
+        partController.changeSelectedPart(part);
+        navigationController.navigateTo(partDetailsDisplayName);
+      },
       child: Container(
         margin: const EdgeInsets.all(defaultPadding),
         padding: const EdgeInsets.symmetric(

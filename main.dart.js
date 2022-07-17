@@ -82613,7 +82613,7 @@ G(a,b){var s=null,r=A.eF(5),q=A.b([new A.bx(0,B.C,A.O(51,153,153,153),B.eL,12)],
 return A.hf(!1,!0,A.ao(s,A.bB(A.b([new A.b1("#"+p.f,B.a_,18,B.n,B.b_,s),B.dM,new A.b1(B.f.j(p.d),A.O(153,54,55,64),20,B.I,s,s)],t.p),B.v,B.w,B.u),B.j,s,s,new A.bW(B.o,s,s,r,q,s,B.O),s,s,s,B.aP,B.qf,s,s,s),s,!0,s,s,s,s,s,s,s,s,s,s,new A.aco(this),s,s,s)}}
 A.aco.prototype={
 $0(){$.iQ().ay.sl(0,this.a.c)
-$.zf().ax.gaj().uG("/parts-details",t.X)},
+$.zf().ax.gaj().uG("Part Details",t.X)},
 $S:0}
 A.Pl.prototype={
 G(a,b){var s=null,r=b.L(t.w).f
